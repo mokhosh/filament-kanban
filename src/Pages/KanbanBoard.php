@@ -11,6 +11,10 @@ class KanbanBoard extends Page
 
     protected static string $view = 'filament.pages.kanban-board';
 
+    protected static string $recordTitleAttribute = 'title';
+
+    protected static mixed $recordStatusAttribute = 'status';
+
     protected function statuses(): Collection
     {
         return collect();
@@ -23,10 +27,11 @@ class KanbanBoard extends Page
 
     protected function getViewData(): array
     {
-        $records = $this->records();
+        $records = $this->records()
+            ->map($this->transformRecords(...));
         $statuses = $this->statuses()
             ->map(function ($status) use ($records) {
-                $status['records'] = $records->where('status', $status['id'])->all();
+                $status['records'] = $records->where(static::$recordStatusAttribute, $status['id'])->all();
 
                 return $status;
             });
@@ -34,5 +39,14 @@ class KanbanBoard extends Page
         return [
             'statuses' => $statuses,
         ];
+    }
+
+    protected function transformRecords($record): Collection
+    {
+        return collect([
+            'id' => $record->id,
+            'title' => $record->{static::$recordTitleAttribute},
+            'status' => $record->{static::$recordStatusAttribute},
+        ]);
     }
 }
