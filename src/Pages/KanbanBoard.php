@@ -31,7 +31,7 @@ class KanbanBoard extends Page
             ->map($this->transformRecords(...));
         $statuses = $this->statuses()
             ->map(function ($status) use ($records) {
-                $status['records'] = $records->where(static::$recordStatusAttribute, $status['id'])->all();
+                $status['records'] = $records->where('status', $status['id'])->all();
 
                 return $status;
             });
