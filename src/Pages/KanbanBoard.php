@@ -3,6 +3,7 @@
 namespace Mokhosh\FilamentKanban\Pages;
 
 use Filament\Pages\Page;
+use Illuminate\Support\Collection;
 
 class KanbanBoard extends Page
 {
@@ -10,18 +11,28 @@ class KanbanBoard extends Page
 
     protected static string $view = 'filament.pages.kanban-board';
 
-    protected function statuses(): array
+    protected function statuses(): Collection
     {
-        return [
-            'pitching',
-            'onboarding',
-        ];
+        return collect();
+    }
+
+    protected function records(): Collection
+    {
+        return collect();
     }
 
     protected function getViewData(): array
     {
+        $records = $this->records();
+        $statuses = $this->statuses()
+            ->map(function ($status) use ($records) {
+                $status['records'] = $records->where('status', $status['id'])->all();
+
+                return $status;
+            });
+
         return [
-            'statuses' => $this->statuses(),
+            'statuses' => $statuses,
         ];
     }
 }
