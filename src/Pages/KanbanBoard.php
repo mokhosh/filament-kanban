@@ -9,7 +9,7 @@ class KanbanBoard extends Page
 {
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
 
-    protected static string $view = 'filament.pages.kanban-board';
+    protected static string $view = 'filament-kanban::pages.kanban-board';
 
     protected static string $recordTitleAttribute = 'title';
 
