@@ -6,7 +6,7 @@
 
                 <div class="flex flex-col gap-2">
                     @foreach($status['records'] as $record)
-                        <div class="bg-white rounded border px-4 py-2 cursor-grab font-medium text-gray-600">{{ $record['title'] }}</div>
+                        <div class="bg-white rounded border px-4 py-2 cursor-grab active:cursor-grabbing font-medium text-gray-600">{{ $record['title'] }}</div>
                     @endforeach
                 </div>
             </div>

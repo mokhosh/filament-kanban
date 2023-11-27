@@ -4427,6 +4427,10 @@ html {
   --tw-ring-color: rgba(var(--primary-600), var(--tw-ring-opacity));
 }
 
+.active\:cursor-grabbing:active {
+  cursor: grabbing;
+}
+
 .enabled\:cursor-wait:enabled {
   cursor: wait;
 }
