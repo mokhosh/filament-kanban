@@ -2855,6 +2855,10 @@ html {
   cursor: grab;
 }
 
+.cursor-grabbing {
+  cursor: grabbing;
+}
+
 .cursor-move {
   cursor: move;
 }
@@ -3420,11 +3424,6 @@ html {
 .bg-gray-50 {
   --tw-bg-opacity: 1;
   background-color: rgba(var(--gray-50), var(--tw-bg-opacity));
-}
-
-.bg-gray-700 {
-  --tw-bg-opacity: 1;
-  background-color: rgba(var(--gray-700), var(--tw-bg-opacity));
 }
 
 .bg-gray-950\/50 {
@@ -4430,10 +4429,6 @@ html {
 .focus-visible\:ring-primary-600:focus-visible {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgba(var(--primary-600), var(--tw-ring-opacity));
-}
-
-.active\:cursor-grabbing:active {
-  cursor: grabbing;
 }
 
 .enabled\:cursor-wait:enabled {
