@@ -12,7 +12,7 @@ trait RespondsToStatusChange
         $this->onStatusChanged($record, $status);
     }
 
-    protected function onStatusChanged($record, $status)
+    public function onStatusChanged($record, $status)
     {
         dd($record, $status);
     }
