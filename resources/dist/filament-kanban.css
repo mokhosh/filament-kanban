@@ -3422,6 +3422,11 @@ html {
   background-color: rgba(var(--gray-50), var(--tw-bg-opacity));
 }
 
+.bg-gray-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--gray-700), var(--tw-bg-opacity));
+}
+
 .bg-gray-950\/50 {
   background-color: rgba(var(--gray-950), 0.5);
 }

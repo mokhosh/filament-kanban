@@ -4,9 +4,12 @@ namespace Mokhosh\FilamentKanban\Pages;
 
 use Filament\Pages\Page;
 use Illuminate\Support\Collection;
+use Mokhosh\FilamentKanban\Concerns\RespondsToStatusChange;
 
 class KanbanBoard extends Page
 {
+    use RespondsToStatusChange;
+
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
 
     protected static string $view = 'filament-kanban::pages.kanban-board';
