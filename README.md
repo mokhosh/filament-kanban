@@ -17,13 +17,6 @@ You can install the package via composer:
 composer require mokhosh/filament-kanban
 ```
 
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag="filament-kanban-migrations"
-php artisan migrate
-```
-
 You can publish the config file with:
 
 ```bash
@@ -46,8 +39,7 @@ return [
 ## Usage
 
 ```php
-$filamentKanban = new Mokhosh\FilamentKanban();
-echo $filamentKanban->echoPhrase('Hello, Mokhosh!');
+// todo
 ```
 
 ## Testing
@@ -70,12 +62,15 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## TODO
 
+- [ ] update readme
+- [ ] update changelog
 - [ ] use filament actions for edit modal
 
 ## Credits
 
 - [Mo Khosh](https://github.com/mokhosh)
 - [All Contributors](../../contributors)
+- This original idea and structure of this package borrows heavily from [David Vincent](https://github.com/invaders-xx)'s [filament-kanban-board](https://github.com/invaders-xx/filament-kanban-board/)
 
 ## License
 
