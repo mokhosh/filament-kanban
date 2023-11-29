@@ -10,7 +10,7 @@ use Filament\Support\Facades\FilamentAsset;
 use Filament\Support\Facades\FilamentIcon;
 use Illuminate\Filesystem\Filesystem;
 use Livewire\Features\SupportTesting\Testable;
-use Mokhosh\FilamentKanban\Commands\FilamentKanbanCommand;
+use Mokhosh\FilamentKanban\Commands\MakeKanbanBoardCommand;
 use Mokhosh\FilamentKanban\Testing\TestsFilamentKanban;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
@@ -101,7 +101,7 @@ class FilamentKanbanServiceProvider extends PackageServiceProvider
     protected function getCommands(): array
     {
         return [
-            FilamentKanbanCommand::class,
+            MakeKanbanBoardCommand::class,
         ];
     }
 

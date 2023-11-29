@@ -1,0 +1,24 @@
+<?php
+
+namespace DummyNamespace;
+
+use Illuminate\Support\Collection;
+use Mokhosh\FilamentKanban\Pages\KanbanBoard;
+
+class DummyClass extends KanbanBoard
+{
+    protected function statuses(): Collection
+    {
+        // return StatusEnum::statuses();
+    }
+
+    protected function records(): Collection
+    {
+        // return Model::latest('updated_at')->get();
+    }
+
+    public function onStatusChanged(int $recordId, string $status): void
+    {
+        // Model::find($recordId)->update(['status' => $status]);
+    }
+}
