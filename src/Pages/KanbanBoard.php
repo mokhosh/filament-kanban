@@ -4,6 +4,7 @@ namespace Mokhosh\FilamentKanban\Pages;
 
 use Filament\Forms\Contracts\HasForms;
 use Filament\Pages\Page;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Mokhosh\FilamentKanban\Concerns\HasEditRecordModal;
 use Mokhosh\FilamentKanban\Concerns\HasStatusChange;
@@ -47,7 +48,7 @@ class KanbanBoard extends Page implements HasForms
         ];
     }
 
-    protected function transformRecords($record): Collection
+    protected function transformRecords(Model $record): Collection
     {
         return collect([
             'id' => $record->id,

@@ -18,7 +18,7 @@ trait HasEditRecordModal
 
     protected string $editModalCancelButtonLabel = "Cancel";
 
-    public function recordClicked($recordId, $data): void
+    public function recordClicked(int $recordId, array $data): void
     {
         $this->editModalRecordId = $recordId;
 
@@ -43,12 +43,12 @@ trait HasEditRecordModal
             ->statePath('editModalFormState');
     }
 
-    protected function getEditModalRecordData($recordId, $data): array
+    protected function getEditModalRecordData(int $recordId, array $data): array
     {
         return $data;
     }
 
-    protected function editRecord($recordId, array $data, array $state): void
+    protected function editRecord(int $recordId, array $data, array $state): void
     {
         //
     }
