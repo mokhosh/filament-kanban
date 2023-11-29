@@ -2,12 +2,9 @@
 
 namespace Mokhosh\FilamentKanban;
 
-use Filament\Support\Assets\AlpineComponent;
 use Filament\Support\Assets\Asset;
 use Filament\Support\Assets\Css;
-use Filament\Support\Assets\Js;
 use Filament\Support\Facades\FilamentAsset;
-use Filament\Support\Facades\FilamentIcon;
 use Illuminate\Filesystem\Filesystem;
 use Livewire\Features\SupportTesting\Testable;
 use Mokhosh\FilamentKanban\Commands\MakeKanbanBoardCommand;
@@ -29,8 +26,6 @@ class FilamentKanbanServiceProvider extends PackageServiceProvider
             ->hasInstallCommand(function (InstallCommand $command) {
                 $command
                     ->publishConfigFile()
-                    ->publishMigrations()
-                    ->askToRunMigrations()
                     ->askToStarRepoOnGitHub('mokhosh/filament-kanban');
             });
 
@@ -45,10 +40,6 @@ class FilamentKanbanServiceProvider extends PackageServiceProvider
         }
     }
 
-    public function packageRegistered(): void
-    {
-    }
-
     public function packageBooted(): void
     {
         // Asset Registration
@@ -56,14 +47,6 @@ class FilamentKanbanServiceProvider extends PackageServiceProvider
             $this->getAssets(),
             $this->getAssetPackageName()
         );
-
-        FilamentAsset::registerScriptData(
-            $this->getScriptData(),
-            $this->getAssetPackageName()
-        );
-
-        // Icon Registration
-        FilamentIcon::register($this->getIcons());
 
         // Handle Stubs
         if (app()->runningInConsole()) {
@@ -90,8 +73,8 @@ class FilamentKanbanServiceProvider extends PackageServiceProvider
     {
         return [
             // AlpineComponent::make('filament-kanban', __DIR__ . '/../resources/dist/components/filament-kanban.js'),
+            // Js::make('filament-kanban-scripts', __DIR__ . '/../resources/dist/filament-kanban.js'),
             Css::make('filament-kanban-styles', __DIR__ . '/../resources/dist/filament-kanban.css'),
-            Js::make('filament-kanban-scripts', __DIR__ . '/../resources/dist/filament-kanban.js'),
         ];
     }
 
@@ -103,21 +86,5 @@ class FilamentKanbanServiceProvider extends PackageServiceProvider
         return [
             MakeKanbanBoardCommand::class,
         ];
-    }
-
-    /**
-     * @return array<string>
-     */
-    protected function getIcons(): array
-    {
-        return [];
-    }
-
-    /**
-     * @return array<string, mixed>
-     */
-    protected function getScriptData(): array
-    {
-        return [];
     }
 }
