@@ -4,21 +4,20 @@
     }
 
     function onAdd(e) {
-        const record = e.item.id
+        const recordId = e.item.id
         const status = e.to.id
         const fromOrderedIds = [].slice.call(e.from.children).map(child => child.id)
         const toOrderedIds = [].slice.call(e.to.children).map(child => child.id)
 
-        Livewire.dispatch('status-changed', {record, status, fromOrderedIds, toOrderedIds})
+        Livewire.dispatch('status-changed', {recordId, status, fromOrderedIds, toOrderedIds})
     }
 
     function onUpdate(e) {
-        const record = e.item.id
+        const recordId = e.item.id
         const status = e.from.id
         const orderedIds = [].slice.call(e.from.children).map(child => child.id)
-        console.log(record, status, orderedIds)
 
-        Livewire.dispatch('status-changed', {record, status, orderedIds})
+        Livewire.dispatch('status-changed', {recordId, status, orderedIds})
     }
 
     window.onload = () => {
