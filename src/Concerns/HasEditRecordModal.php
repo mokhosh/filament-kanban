@@ -14,9 +14,9 @@ trait HasEditRecordModal
 
     protected string $editModalWidth = '2xl';
 
-    protected string $editModalSaveButtonLabel = "Save";
+    protected string $editModalSaveButtonLabel = 'Save';
 
-    protected string $editModalCancelButtonLabel = "Cancel";
+    protected string $editModalCancelButtonLabel = 'Cancel';
 
     public function recordClicked(int $recordId, array $data): void
     {
@@ -54,7 +54,7 @@ trait HasEditRecordModal
         //
     }
 
-    protected function getEditModalFormSchema(int|null $recordId): array
+    protected function getEditModalFormSchema(?int $recordId): array
     {
         return [];
     }

@@ -11,8 +11,8 @@ use Mokhosh\FilamentKanban\Concerns\HasStatusChange;
 
 class KanbanBoard extends Page implements HasForms
 {
-    use HasStatusChange;
     use HasEditRecordModal;
+    use HasStatusChange;
 
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
 
