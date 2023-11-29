@@ -17,7 +17,7 @@
         const status = e.from.id
         const orderedIds = [].slice.call(e.from.children).map(child => child.id)
 
-        Livewire.dispatch('status-changed', {recordId, status, orderedIds})
+        Livewire.dispatch('sort-changed', {recordId, status, orderedIds})
     }
 
     window.onload = () => {
