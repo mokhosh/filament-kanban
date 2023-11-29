@@ -2,13 +2,16 @@
 
 namespace Mokhosh\FilamentKanban\Pages;
 
+use Filament\Forms\Contracts\HasForms;
 use Filament\Pages\Page;
 use Illuminate\Support\Collection;
+use Mokhosh\FilamentKanban\Concerns\HasEditRecordModal;
 use Mokhosh\FilamentKanban\Concerns\RespondsToStatusChange;
 
-class KanbanBoard extends Page
+class KanbanBoard extends Page implements HasForms
 {
     use RespondsToStatusChange;
+    use HasEditRecordModal;
 
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
 

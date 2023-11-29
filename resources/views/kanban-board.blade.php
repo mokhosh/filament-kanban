@@ -8,4 +8,6 @@
             @include('filament-kanban::kanban-scripts')
         </div>
     </div>
+
+    <x-filament-kanban::edit-record-modal/>
 </x-filament-panels::page>
