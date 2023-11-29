@@ -6,11 +6,11 @@ use Filament\Forms\Contracts\HasForms;
 use Filament\Pages\Page;
 use Illuminate\Support\Collection;
 use Mokhosh\FilamentKanban\Concerns\HasEditRecordModal;
-use Mokhosh\FilamentKanban\Concerns\RespondsToStatusChange;
+use Mokhosh\FilamentKanban\Concerns\HasStatusChange;
 
 class KanbanBoard extends Page implements HasForms
 {
-    use RespondsToStatusChange;
+    use HasStatusChange;
     use HasEditRecordModal;
 
     protected static ?string $navigationIcon = 'heroicon-o-document-text';

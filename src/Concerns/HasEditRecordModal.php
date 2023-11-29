@@ -24,12 +24,38 @@ trait HasEditRecordModal
 
         $this->form->fill($this->getEditModalRecordData($recordId, $data));
 
-        $this->dispatch('open-modal', id: 'kanban--edit-modal-form');
+        $this->dispatch('open-modal', id: 'kanban--edit-record-modal');
     }
 
-    public function getEditModalRecordData($recordId, $data): array
+    public function editModalFormSubmitted(): void
+    {
+        $this->editRecord($this->editModalRecordId, $this->form->getState(), $this->editModalFormState);
+
+        $this->editModalRecordId = null;
+
+        $this->dispatch('close-modal', id: 'kanban--edit-record-modal');
+    }
+
+    public function form(Form $form): Form
+    {
+        return $form
+            ->schema($this->getEditModalFormSchema($this->editModalRecordId))
+            ->statePath('editModalFormState');
+    }
+
+    protected function getEditModalRecordData($recordId, $data): array
     {
         return $data;
+    }
+
+    protected function editRecord($recordId, array $data, array $state): void
+    {
+        //
+    }
+
+    protected function getEditModalFormSchema(int|null $recordId): array
+    {
+        return [];
     }
 
     protected function getEditModalTitle(): string
@@ -50,31 +76,5 @@ trait HasEditRecordModal
     protected function getEditModalCancelButtonLabel(): string
     {
         return $this->editModalCancelButtonLabel;
-    }
-
-    public function onEditModalFormSubmit(): void
-    {
-        $this->editRecord($this->editModalRecordId, $this->form->getState(), $this->editModalFormState);
-
-        $this->editModalRecordId = null;
-
-        $this->dispatch('close-modal', id: 'kanban--edit-modal-form');
-    }
-
-    public function editRecord($recordId, array $data, array $state): void
-    {
-        // Override this function and do whatever you want with $data
-    }
-
-    protected function getEditModalFormSchema(int|null $recordId): array
-    {
-        return [];
-    }
-
-    public function form(Form $form): Form
-    {
-        return $form
-            ->schema($this->getEditModalFormSchema($this->editModalRecordId))
-            ->statePath('editModalFormState');
     }
 }
