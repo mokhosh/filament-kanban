@@ -65,6 +65,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 - [ ] update readme
 - [ ] update changelog
 - [ ] use filament actions for edit modal
+- [ ] write tests and check wth the testing folder does
 
 ## Credits
 
