@@ -2,6 +2,8 @@
 
 namespace Mokhosh\FilamentKanban\Concerns;
 
+use Filament\Forms\Form;
+
 trait HasEditRecordModal
 {
     public array $editModalFormState = [];
@@ -20,7 +22,7 @@ trait HasEditRecordModal
     {
         $this->editModalRecordId = $recordId;
 
-        $this->editModalForm->fill($this->getEditModalRecordData($recordId, $data));
+        $this->form->fill($this->getEditModalRecordData($recordId, $data));
 
         $this->dispatch('open-modal', id: 'kanban--edit-modal-form');
     }
@@ -50,11 +52,9 @@ trait HasEditRecordModal
         return $this->editModalCancelButtonLabel;
     }
 
-    //
-
     public function onEditModalFormSubmit(): void
     {
-        $this->editRecord($this->editModalRecordId, $this->editModalForm->getState(), $this->editModalFormState);
+        $this->editRecord($this->editModalRecordId, $this->form->getState(), $this->editModalFormState);
 
         $this->editModalRecordId = null;
 
@@ -71,26 +71,10 @@ trait HasEditRecordModal
         return [];
     }
 
-    protected function getEditModalForm(): array
+    public function form(Form $form): Form
     {
-        return [
-            'editModalForm' => $this->makeForm()
-                ->schema($this->getEditModalFormSchema($this->editModalRecordId))
-                ->statePath('editModalFormState'),
-        ];
-    }
-
-    //
-
-    protected function setUpForms(): void
-    {
-        $this->editModalForm->fill();
-    }
-
-    protected function getForms(): array
-    {
-        return array_merge(
-            $this->getEditModalForm()
-        );
+        return $form
+            ->schema($this->getEditModalFormSchema($this->editModalRecordId))
+            ->statePath('editModalFormState');
     }
 }

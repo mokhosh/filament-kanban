@@ -6,7 +6,7 @@
             </x-filament::modal.heading>
         </x-slot>
 
-        {{ $this->editModalForm }}
+        {{ $this->form }}
 
         <x-slot name="footer">
             <x-filament::button type="submit">
