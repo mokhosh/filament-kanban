@@ -68,6 +68,10 @@ Please see [CONTRIBUTING](.github/CONTRIBUTING.md) for details.
 
 Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
 
+## TODO
+
+- [ ] use filament actions for edit modal
+
 ## Credits
 
 - [Mo Khosh](https://github.com/mokhosh)
