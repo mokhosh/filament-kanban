@@ -25,15 +25,8 @@ class FilamentKanbanServiceProvider extends PackageServiceProvider
             ->hasCommands($this->getCommands())
             ->hasInstallCommand(function (InstallCommand $command) {
                 $command
-                    ->publishConfigFile()
                     ->askToStarRepoOnGitHub('mokhosh/filament-kanban');
             });
-
-        $configFileName = $package->shortName();
-
-        if (file_exists($package->basePath("/../config/{$configFileName}.php"))) {
-            $package->hasConfigFile();
-        }
 
         if (file_exists($package->basePath('/../resources/views'))) {
             $package->hasViews(static::$viewNamespace);
