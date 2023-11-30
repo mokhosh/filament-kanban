@@ -20,7 +20,7 @@ class KanbanBoard extends Page implements HasForms
 
     protected static string $recordTitleAttribute = 'title';
 
-    protected static mixed $recordStatusAttribute = 'status';
+    protected static string $recordStatusAttribute = 'status';
 
     protected function statuses(): Collection
     {
