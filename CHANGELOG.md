@@ -2,6 +2,10 @@
 
 All notable changes to `filament-kanban` will be documented in this file.
 
+## v1.4.0 - 2023-11-30
+
+make assets publishable
+
 ## v1.3.0 - 2023-11-30
 
 update stubs
