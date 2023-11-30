@@ -22,9 +22,11 @@ class FilamentKanbanServiceProvider extends PackageServiceProvider
     public function configurePackage(Package $package): void
     {
         $package->name(static::$name)
+            ->hasAssets()
             ->hasCommands($this->getCommands())
             ->hasInstallCommand(function (InstallCommand $command) {
                 $command
+                    ->publishAssets()
                     ->askToStarRepoOnGitHub('mokhosh/filament-kanban');
             });
 
