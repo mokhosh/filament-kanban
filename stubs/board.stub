@@ -17,8 +17,14 @@ class DummyClass extends KanbanBoard
         // return Model::latest('updated_at')->get();
     }
 
-    public function onStatusChanged(int $recordId, string $status): void
+    public function onStatusChanged(int $recordId, string $status, array $fromOrderedIds, array $toOrderedIds): void
     {
         // Model::find($recordId)->update(['status' => $status]);
+        // Model::setNewOrder($toOrderedIds);
+    }
+
+    public function onSortChanged(int $recordId, string $status, array $orderedIds): void
+    {
+        // Model::setNewOrder($orderedIds);
     }
 }
