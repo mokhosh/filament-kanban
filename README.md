@@ -14,6 +14,17 @@ You can install the package via composer:
 composer require mokhosh/filament-kanban
 ```
 
+Publish the assets so the styles are correct:
+
+```bash
+# Publish all filament assets
+php artisan filament:assets
+# OR
+php artisan filament-kanban:install
+# OR
+php artisan vendor:publish --tag=filament-kanban-assets
+```
+
 ## Usage
 
 You can create a new kanban board using this artisan command:
