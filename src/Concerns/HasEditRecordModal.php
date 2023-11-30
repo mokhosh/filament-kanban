@@ -6,6 +6,8 @@ use Filament\Forms\Form;
 
 trait HasEditRecordModal
 {
+    public bool $disableEditModal = false;
+
     public array $editModalFormState = [];
 
     public ?int $editModalRecordId = null;

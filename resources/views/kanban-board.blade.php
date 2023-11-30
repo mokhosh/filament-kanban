@@ -9,5 +9,7 @@
         </div>
     </div>
 
-    <x-filament-kanban::edit-record-modal/>
+    @unless($disableEditModal)
+        <x-filament-kanban::edit-record-modal/>
+    @endunless
 </x-filament-panels::page>
