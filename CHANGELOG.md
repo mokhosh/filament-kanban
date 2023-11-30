@@ -2,6 +2,10 @@
 
 All notable changes to `filament-kanban` will be documented in this file.
 
+## v1.1.0 - 2023-11-30
+
+add sorting and ordering
+
 ## 1.0.0 - 202X-XX-XX
 
 - initial release
