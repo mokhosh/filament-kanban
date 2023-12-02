@@ -2,6 +2,10 @@
 
 All notable changes to `filament-kanban` will be documented in this file.
 
+## v1.6.0 - 2023-12-02
+
+use enum value as status if the property on model has been cast to an enum
+
 ## v1.5.0 - 2023-12-02
 
 use enum value for id to allow backed enum casts on models
