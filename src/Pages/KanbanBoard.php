@@ -57,6 +57,11 @@ class KanbanBoard extends Page implements HasForms
             'status' => $record->{static::$recordStatusAttribute} instanceof UnitEnum ?
                 $record->{static::$recordStatusAttribute}->value :
                 $record->{static::$recordStatusAttribute},
-        ]);
+        ])->merge($this->additionalRecordData($record));
+    }
+
+    protected function additionalRecordData(Model $record): Collection
+    {
+        return collect([]);
     }
 }
