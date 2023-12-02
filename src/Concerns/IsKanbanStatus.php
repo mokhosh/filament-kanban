@@ -24,7 +24,7 @@ trait IsKanbanStatus
 
     public function getId(): string
     {
-        return $this->name;
+        return $this->value;
     }
 
     public function getTitle(): string
