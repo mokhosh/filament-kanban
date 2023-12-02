@@ -70,6 +70,8 @@ public function onSortChanged(int $recordId, string $status, array $orderedIds):
 I recommend you create a string backed Enum for your statuses, which you can use as a cast on your model as well.
 You can use the trait `IsKanbanStatus` so you can easily transform your enum cases for the kanban board using the `statuses` method on your enum.
 
+I recommend you cast your `status` attribute to the enum that you have created.
+
 I also recommend using the [Spatie Eloquent Sortable](https://github.com/spatie/eloquent-sortable) package on your model to get the `ordered` and `setNewOrder` methods for free.
 
 ## Customization
@@ -104,6 +106,17 @@ I recommend delete the files that you don't intend to customize and keep the one
 This way you will get any possible future updates for the original views.
 
 If you need to add more data to the `record` variables that are passed to the views, you can override this method:
+
+```php
+protected function additionalRecordData(Model $record): Collection
+{
+    return collect([]);
+}
+```
+
+These items will be merged with `id`, `title` and `status` and avialable in the views.
+
+If you need to override how the id, title and status are retrieved from the record, you can override this method:
 
 ```php
 protected function transformRecords(Model $record): Collection
