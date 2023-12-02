@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Mokhosh\FilamentKanban\Concerns\HasEditRecordModal;
 use Mokhosh\FilamentKanban\Concerns\HasStatusChange;
+use UnitEnum;
 
 class KanbanBoard extends Page implements HasForms
 {
@@ -53,7 +54,9 @@ class KanbanBoard extends Page implements HasForms
         return collect([
             'id' => $record->id,
             'title' => $record->{static::$recordTitleAttribute},
-            'status' => $record->{static::$recordStatusAttribute},
+            'status' => $record->{static::$recordStatusAttribute} instanceof UnitEnum ?
+                $record->{static::$recordStatusAttribute}->value :
+                $record->{static::$recordStatusAttribute},
         ]);
     }
 }
