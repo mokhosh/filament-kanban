@@ -8,7 +8,7 @@ trait HasEditRecordModal
 {
     public bool $disableEditModal = false;
 
-    public array $editModalFormState = [];
+    public ?array $editModalFormState = [];
 
     public ?int $editModalRecordId = null;
 
