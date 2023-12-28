@@ -20,7 +20,7 @@
         Livewire.dispatch('sort-changed', {recordId, status, orderedIds})
     }
 
-    window.onload = () => {
+    document.addEventListener('livewire:navigated', () => {
         @foreach($statuses as $status)
             {{-- dont touch this line --}}
             Sortable.create(document.getElementById('{{ $status['id'] }}'), {
@@ -34,5 +34,5 @@
                 onAdd,
             })
         @endforeach
-    }
+    })
 </script>
