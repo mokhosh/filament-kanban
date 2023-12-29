@@ -2,6 +2,12 @@
 
 All notable changes to `filament-kanban` will be documented in this file.
 
+## v1.8.0 - 2023-12-29
+
+Two fixes by https://github.com/Log1x
+🩹 Fix nullable state property
+🩹 Fix sorting when using SPA mode
+
 ## v1.7.0 - 2023-12-02
 
 only describe additional data if you dont want to override the defaults
