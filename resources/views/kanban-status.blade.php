@@ -5,7 +5,7 @@
 
     <div
         id="{{ $status['id'] }}"
-        class="flex flex-col gap-2 p-4"
+        class="flex flex-col gap-2 p-4 min-h-full"
     >
         @foreach($status['records'] as $record)
             @include('filament-kanban::kanban-record')
