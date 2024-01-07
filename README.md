@@ -1,10 +1,9 @@
-![cover.png](cover.png)
+![cover.png](cover.jpg)
 
 # Add Kanban Boards to your Filament Pages
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/mokhosh/filament-kanban.svg?style=flat-square)](https://packagist.org/packages/mokhosh/filament-kanban)
 [![Total Downloads](https://img.shields.io/packagist/dt/mokhosh/filament-kanban.svg?style=flat-square)](https://packagist.org/packages/mokhosh/filament-kanban)
-
 
 Easily add kanban board pages to your Filament panels.
 
@@ -49,6 +48,14 @@ There are four methods you should override to get the basic functionality.
 protected function statuses(): Collection
 {
     // return StatusEnum::statuses();
+    /*
+     * Should return something like this:
+     * [
+     *  ['id' => 'new','title' => 'todo'],
+     *  ['id' => 'on-progress','title' => 'On progress'],
+     *  ['id' => 'done','title' => 'Done'],
+     * ]
+     */
 }
 
 protected function records(): Collection
@@ -87,10 +94,40 @@ to get the `ordered` and `setNewOrder` methods for free.
 protected static ?string $navigationIcon = 'heroicon-o-document-text';
 ```
 
-### Changing the model property that's used as the title
+### Card Title
+
+Changing the model property that's used as card title
 
 ```php
-protected static string $recordTitleAttribute = 'title';
+protected static string $cardTitle = 'title';
+```
+
+You can customize the card title by overriding the `getCardTitle()` method. This allows you to modify the title
+formatting or content as needed.
+For example:
+
+```php
+public function getCardTitle(?Model $record) {
+    return new HtmlString('<span>'.$record->uuid.'</span> <h3>'.$record->title.'</h3>');
+}
+```
+
+### Card Content
+
+Changing the model property that's used as card content
+
+```php
+protected static string $cardContent = 'description';
+```
+
+You can customize the card content by overriding the `getCardContent()` method. This allows you to modify the content
+formatting or the whole content as needed.
+For example:
+
+```php
+public function getCardContent(?Model $record) {
+     return new HtmlString('<b class="text-gray-300">'.$record->created_at->diffForHumans().'</b><br><p>'.$record->description.'</p>');
+}
 ```
 
 ### Changing the model property that's used as the status
@@ -119,16 +156,18 @@ protected function additionalRecordData(Model $record): Collection
 }
 ```
 
-These items will be merged with `id`, `title` and `status` and avialable in the views.
+These items will be merged with `id`, `title`, `content` and `status` and available in the views.
 
-If you need to override how the id, title and status are retrieved from the record, you can override this method:
+If you need even further control on how the id, title, content and status are retrieved from the record, you can
+override this method:
 
 ```php
 protected function transformRecords(Model $record): Collection
 {
     return collect([
         'id' => $record->id,
-        'title' => $record->{static::$recordTitleAttribute},
+        'title' => $record->{static::$cardTitle},
+        'content' => $record->{static::$cardContent},
         'status' => $record->{static::$recordStatusAttribute},
         // add anything else you might need in your views
     ]);
