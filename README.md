@@ -1,3 +1,5 @@
+![cover.png](cover.png)
+
 # Add Kanban Boards to your Filament Pages
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/mokhosh/filament-kanban.svg?style=flat-square)](https://packagist.org/packages/mokhosh/filament-kanban)
