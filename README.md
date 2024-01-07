@@ -1,4 +1,4 @@
-# Add kanban boards to your Filament pages
+# Add Kanban Boards to your Filament Pages
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/mokhosh/filament-kanban.svg?style=flat-square)](https://packagist.org/packages/mokhosh/filament-kanban)
 [![Total Downloads](https://img.shields.io/packagist/dt/mokhosh/filament-kanban.svg?style=flat-square)](https://packagist.org/packages/mokhosh/filament-kanban)
@@ -33,7 +33,8 @@ You can create a new kanban board using this artisan command:
 php artisan make:kanban UsersKanbanBoard
 ```
 
-This will create a good starting point for your kanban board. From there you can start customizing the kanban board to your liking.
+This will create a good starting point for your kanban board. From there you can start customizing the kanban board to
+your liking.
 
 There are four methods you should override to get the basic functionality.
 
@@ -68,11 +69,13 @@ public function onSortChanged(int $recordId, string $status, array $orderedIds):
 ## Recommendations
 
 I recommend you create a string backed Enum for your statuses, which you can use as a cast on your model as well.
-You can use the trait `IsKanbanStatus` so you can easily transform your enum cases for the kanban board using the `statuses` method on your enum.
+You can use the trait `IsKanbanStatus` so you can easily transform your enum cases for the kanban board using
+the `statuses` method on your enum.
 
 I recommend you cast your `status` attribute to the enum that you have created.
 
-I also recommend using the [Spatie Eloquent Sortable](https://github.com/spatie/eloquent-sortable) package on your model to get the `ordered` and `setNewOrder` methods for free.
+I also recommend using the [Spatie Eloquent Sortable](https://github.com/spatie/eloquent-sortable) package on your model
+to get the `ordered` and `setNewOrder` methods for free.
 
 ## Customization
 
@@ -226,7 +229,8 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 - [Mo Khosh](https://github.com/mokhosh)
 - [All Contributors](../../contributors)
-- This original idea and structure of this package borrows heavily from [David Vincent](https://github.com/invaders-xx)'s [filament-kanban-board](https://github.com/invaders-xx/filament-kanban-board/)
+- This original idea and structure of this package borrows heavily from [David Vincent](https://github.com/invaders-xx)'
+  s [filament-kanban-board](https://github.com/invaders-xx/filament-kanban-board/)
 
 ## License
 
