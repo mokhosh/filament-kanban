@@ -29,6 +29,12 @@ trait HasEditRecordModal
     {
         $this->editModalRecordId = $recordId;
 
+        /**
+         * todo - the following line is a hacky fix
+         * figure why sometime form schema is created before this
+         * method when a RichText is present in the form schema
+        **/
+        $this->form($this->form);
         $this->form->fill($this->getEditModalRecordData($recordId, $data));
 
         $this->dispatch('open-modal', id: 'kanban--edit-record-modal');
