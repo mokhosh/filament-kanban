@@ -6,13 +6,13 @@
 
 Easily add kanban board pages to your Filament panels.
 
-![images/client-kanban.png](images/client-kanban.png)
+![Customized kanban board views](https://raw.githubusercontent.com/mokhosh/filament-kanban/main/images/client-kanban.png)
 
-![images/client-edit.png](images/client-edit.png)
+![Customized edit modal](https://raw.githubusercontent.com/mokhosh/filament-kanban/main/images/client-edit.png)
 
-![images/prospect-kanban.png](images/prospect-kanban.png)
+![Cards with progress indicator](https://raw.githubusercontent.com/mokhosh/filament-kanban/main/images/prospect-kanban.png)
 
-![images/organizer-board.png](images/organizer-board.png)
+![Another example by @Log1x](https://raw.githubusercontent.com/mokhosh/filament-kanban/main/images/organizer-board.png)
 
 ## Installation
 
