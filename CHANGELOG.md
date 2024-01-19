@@ -2,6 +2,16 @@
 
 All notable changes to `filament-kanban` will be documented in this file.
 
+## fix edit modal not receving record id after updating another model if a richtext is present - 2024-01-19
+
+this was a weird one.
+
+if you have a `RichText` in your form schema, and you update one of the records, the next time you click on a card the form won't receive the `recordId` in `getEditModalFormSchema`.
+
+this fixes it.
+
+hopefully not introducing any regression. i set the record id to `null` as a safety measure anyway.
+
 ## fix rich editor not being filled in modal - 2024-01-19
 
 fix `Livewire property ['editModalFormState...'] cannot be found on component: ['...']`
