@@ -2,6 +2,10 @@
 
 All notable changes to `filament-kanban` will be documented in this file.
 
+## fix rich editor not being filled in modal - 2024-01-19
+
+fix `Livewire property ['editModalFormState...'] cannot be found on component: ['...']`
+
 ## v1.8.0 - 2023-12-29
 
 Two fixes by https://github.com/Log1x
