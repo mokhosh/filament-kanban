@@ -2,6 +2,19 @@
 
 All notable changes to `filament-kanban` will be documented in this file.
 
+## hacky fix to the actual issue - 2024-01-19
+
+the previous attempt at fixing the issue with form that have a rich editor in them wasn't addressing the actual issue.
+
+the issue is that when you have a working rich editor in the form, sometimes the form schema is created before the click record action is handled, which makes the form use the obsolete `$editModalRecordId`.
+
+the form didn't have an issue before adding `mount` with `$form->fill()` only because the rich editor was broken.
+and when you fix it by adding the `mount` method, it starts messing up the flow. if you don't set the `$editModalRecordId` to null you might feel like you're avoiding some issues, but the form is using old `$editModalRecordId` for building schema.
+
+here I've manually triggered a schema creation inside the click handler to fix the issue, but i don't like it.
+
+would appreciate if you have better solutions.
+
 ## fix edit modal not receving record id after updating another model if a richtext is present - 2024-01-19
 
 this was a weird one.
