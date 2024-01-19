@@ -38,7 +38,6 @@ trait HasEditRecordModal
     {
         $this->editRecord($this->editModalRecordId, $this->form->getState(), $this->editModalFormState);
 
-        $this->editModalRecordId = null;
         $this->form->fill();
 
         $this->dispatch('close-modal', id: 'kanban--edit-record-modal');
