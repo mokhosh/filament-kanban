@@ -6,6 +6,14 @@
 
 Easily add kanban board pages to your Filament panels.
 
+![images/client-kanban.png](images/client-kanban.png)
+
+![images/client-edit.png](images/client-edit.png)
+
+![images/prospect-kanban.png](images/prospect-kanban.png)
+
+![images/organizer-board.png](images/organizer-board.png)
+
 ## Installation
 
 You can install the package via composer:
