@@ -1,6 +1,6 @@
 @props(['status'])
 
-<div class="md:w-[24rem] flex-shrink-0">
+<div class="md:w-[24rem] flex-shrink-0 min-h-full flex flex-col">
     @include('filament-kanban::kanban-header')
 
     <div
