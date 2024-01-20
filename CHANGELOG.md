@@ -2,6 +2,15 @@
 
 All notable changes to `filament-kanban` will be documented in this file.
 
+## dark mode + other goodies - 2024-01-20
+
+- dark mode
+- modernize the looks
+- embellishments for status titles
+- bottom padding for scrollbar
+- make status columns full hight for easier drag and drop
+- add visual feedback to records that "just updated"
+
 ## hacky fix to the actual issue - 2024-01-19
 
 the previous attempt at fixing the issue with form that have a rich editor in them wasn't addressing the actual issue.
