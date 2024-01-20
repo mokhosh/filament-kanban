@@ -57,6 +57,7 @@ class KanbanBoard extends Page implements HasForms
             'status' => $record->{static::$recordStatusAttribute} instanceof UnitEnum ?
                 $record->{static::$recordStatusAttribute}->value :
                 $record->{static::$recordStatusAttribute},
+            'just_updated' => $record->updated_at->diffInSeconds(now()) < 3,
         ])->merge($this->additionalRecordData($record));
     }
 
