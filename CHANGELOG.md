@@ -2,6 +2,10 @@
 
 All notable changes to `filament-kanban` will be documented in this file.
 
+## v1.11.0 - 2024-01-30
+
+now you can customize views per kanban board
+
 ## dark mode + other goodies - 2024-01-20
 
 - dark mode
