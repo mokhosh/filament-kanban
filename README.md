@@ -113,6 +113,22 @@ php artisan vendor:publish --tag="filament-kanban-views"
 I recommend you delete the files that you don't intend to customize and keep the ones you want to change.
 This way you will get any possible future updates for the original views.
 
+The above method will replace the views for all kanban boards in your applications.
+
+Alternatively, you might want to change views for one of your boards. You can override each view by overriding these properties:
+
+```php
+protected static string $view = 'filament-kanban::kanban-board';
+
+protected static string $headerView = 'filament-kanban::kanban-header';
+
+protected static string $recordView = 'filament-kanban::kanban-record';
+
+protected static string $statusView = 'filament-kanban::kanban-status';
+
+protected static string $scriptsView = 'filament-kanban::kanban-scripts';
+```
+
 If you need to add more data to the `record` variables that are passed to the views, you can override this method:
 
 ```php
