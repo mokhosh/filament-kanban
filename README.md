@@ -14,6 +14,12 @@ Easily add kanban board pages to your Filament panels.
 
 ![Another example by @Log1x](https://raw.githubusercontent.com/mokhosh/filament-kanban/main/images/organizer-board.png)
 
+## Video Tutorial
+Are you a visual learner? I have created some Youtube videos to get you started with the package:
+
+[![Creating a Kanban Board in FilamentPHP using filament-kanban: Part 1, Basic setup
+](https://img.youtube.com/vi/GquNTj50E78/hqdefault.jpg)](https://www.youtube.com/watch?v=GquNTj50E78)
+
 ## Installation
 
 You can install the package via composer:
