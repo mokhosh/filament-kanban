@@ -208,8 +208,9 @@ protected string $editModalCancelButtonLabel = 'Cancel';
 ## Video Tutorial
 Are you a visual learner? I have created some Youtube videos to get you started with the package:
 
-[![Creating a Kanban Board in FilamentPHP using filament-kanban: Part 1, Basic setup
-](https://i3.ytimg.com/vi/GquNTj50E78/maxresdefault.jpg)](https://www.youtube.com/watch?v=GquNTj50E78)
+[![Creating a Kanban Board in FilamentPHP using filament-kanban: Part 1, Basic setup](https://i3.ytimg.com/vi/GquNTj50E78/maxresdefault.jpg)](https://www.youtube.com/watch?v=GquNTj50E78)
+
+[![Creating a Kanban Board in FilamentPHP: Part 2, Sorting Records with Spatie Eloquent Sortable](https://i3.ytimg.com/vi/ySPx13VZ35s/maxresdefault.jpg)](https://www.youtube.com/watch?v=ySPx13VZ35s)
 
 ## Testing
 
