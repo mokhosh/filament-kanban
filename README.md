@@ -209,7 +209,7 @@ protected string $editModalCancelButtonLabel = 'Cancel';
 Are you a visual learner? I have created some Youtube videos to get you started with the package:
 
 [![Creating a Kanban Board in FilamentPHP using filament-kanban: Part 1, Basic setup
-](https://img.youtube.com/vi/GquNTj50E78/hqdefault.jpg)](https://www.youtube.com/watch?v=GquNTj50E78)
+](https://i3.ytimg.com/vi/GquNTj50E78/maxresdefault.jpg)](https://www.youtube.com/watch?v=GquNTj50E78)
 
 ## Testing
 
