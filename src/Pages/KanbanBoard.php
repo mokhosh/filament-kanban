@@ -19,6 +19,14 @@ class KanbanBoard extends Page implements HasForms
 
     protected static string $view = 'filament-kanban::kanban-board';
 
+    protected static string $headerView = 'filament-kanban::kanban-header';
+
+    protected static string $recordView = 'filament-kanban::kanban-record';
+
+    protected static string $statusView = 'filament-kanban::kanban-status';
+
+    protected static string $scriptsView = 'filament-kanban::kanban-scripts';
+
     protected static string $recordTitleAttribute = 'title';
 
     protected static string $recordStatusAttribute = 'status';
