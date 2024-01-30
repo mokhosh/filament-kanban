@@ -31,7 +31,7 @@ trait HasEditRecordModal
 
         /**
          * todo - the following line is a hacky fix
-         * figure why sometime form schema is created before this
+         * figure why sometimes form schema is created before this
          * method when a RichText is present in the form schema
          **/
         $this->form($this->form);
