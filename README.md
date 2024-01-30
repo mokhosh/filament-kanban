@@ -110,7 +110,7 @@ You can publish the views using this artisan command:
 php artisan vendor:publish --tag="filament-kanban-views"
 ```
 
-I recommend delete the files that you don't intend to customize and keep the ones you want to change.
+I recommend you delete the files that you don't intend to customize and keep the ones you want to change.
 This way you will get any possible future updates for the original views.
 
 If you need to add more data to the `record` variables that are passed to the views, you can override this method:
