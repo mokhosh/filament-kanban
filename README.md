@@ -212,6 +212,8 @@ Are you a visual learner? I have created some Youtube videos to get you started 
 
 [![Creating a Kanban Board in FilamentPHP: Part 2, Sorting Records with Spatie Eloquent Sortable](https://i3.ytimg.com/vi/ySPx13VZ35s/maxresdefault.jpg)](https://www.youtube.com/watch?v=ySPx13VZ35s)
 
+[![Creating a Kanban Board in FilamentPHP: Part 3, Multiple Kanban boards per model and customizations](https://i3.ytimg.com/vi/Pk-yZIrHTiQ/maxresdefault.jpg)](https://www.youtube.com/watch?v=Pk-yZIrHTiQ)
+
 ## Testing
 
 ```bash
