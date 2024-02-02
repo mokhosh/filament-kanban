@@ -232,6 +232,12 @@ Are you a visual learner? I have created some Youtube videos to get you started 
 
 [![Create a Kanban Task Management App in 15 Minutes: Part 4, Create and Edit Actions](https://i3.ytimg.com/vi/QZP57DBtXrU/maxresdefault.jpg)](https://www.youtube.com/watch?v=QZP57DBtXrU)
 
+## Demos and Examples
+
+- [Kanban Example](https://github.com/mokhosh/filament-kanban-example)
+
+- [Kanban Todo](https://github.com/mokhosh/filament-kanban-todo)
+
 ## Testing
 
 ```bash
