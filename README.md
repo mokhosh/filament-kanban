@@ -230,6 +230,8 @@ Are you a visual learner? I have created some Youtube videos to get you started 
 
 [![Creating a Kanban Board in FilamentPHP: Part 3, Multiple Kanban boards per model and customizations](https://i3.ytimg.com/vi/Pk-yZIrHTiQ/maxresdefault.jpg)](https://www.youtube.com/watch?v=Pk-yZIrHTiQ)
 
+[![Create a Kanban Task Management App in 15 Minutes: Part 4, Create and Edit Actions](https://i3.ytimg.com/vi/QZP57DBtXrU/maxresdefault.jpg)](https://www.youtube.com/watch?v=QZP57DBtXrU)
+
 ## Testing
 
 ```bash
