@@ -234,6 +234,8 @@ Are you a visual learner? I have created some Youtube videos to get you started 
 
 [![Create a Kanban Task Management App with FilamentPHP: Part 5, Customize the Views](https://i3.ytimg.com/vi/RF6-2hern08/maxresdefault.jpg)](https://www.youtube.com/watch?v=RF6-2hern08)
 
+[![Create a Kanban Task Management App with FilamentPHP: Part 6, Customize the Theme](https://i3.ytimg.com/vi/hyhmEIoWqTg/maxresdefault.jpg)](https://www.youtube.com/watch?v=hyhmEIoWqTg)
+
 ## Demos and Examples
 
 - [Kanban Example](https://github.com/mokhosh/filament-kanban-example)
