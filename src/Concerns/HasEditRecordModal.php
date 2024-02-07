@@ -2,6 +2,7 @@
 
 namespace Mokhosh\FilamentKanban\Concerns;
 
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 
 trait HasEditRecordModal
@@ -69,7 +70,9 @@ trait HasEditRecordModal
 
     protected function getEditModalFormSchema(?int $recordId): array
     {
-        return [];
+        return [
+            TextInput::make(static::$recordTitleAttribute),
+        ];
     }
 
     protected function getEditModalTitle(): string
