@@ -43,7 +43,9 @@ class KanbanBoard extends Page implements HasForms
 
     protected function records(): Collection
     {
-        return static::$model::get();
+        return static::$model::query()
+            ->when(method_exists(static::$model, 'scopeOrdered'), fn ($query) => $query->ordered())
+            ->get();
     }
 
     protected function getViewData(): array
