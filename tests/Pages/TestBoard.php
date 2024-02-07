@@ -10,6 +10,8 @@ use Mokhosh\FilamentKanban\Tests\Models\Task;
 
 class TestBoard extends KanbanBoard
 {
+    protected static ?string $model = Task::class;
+
     protected function statuses(): Collection
     {
         return TaskStatus::statuses();
