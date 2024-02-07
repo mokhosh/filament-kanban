@@ -17,10 +17,7 @@ it('loads statuses', function () {
 });
 
 it('loads records', function () {
-    $task = Task::create([
-        'title' => 'First Task',
-        'status' => 'Todo',
-    ]);
+    $task = Task::factory()->create();
 
     actingAs($this->admin)
         ->get(TestBoard::getUrl())
@@ -28,26 +25,16 @@ it('loads records', function () {
 });
 
 it('changes status', function () {
-    $task = Task::create([
-        'title' => 'First Task',
-        'status' => 'Todo',
-    ]);
+    $task = Task::factory()->todo()->create();
 
     livewire(TestBoard::class)
         ->call('onStatusChanged', $task->id, TaskStatus::Done->value, [], []);
 
-    expect($task->fresh()->status)->toBe(TaskStatus::Done->value);
+    expect($task->fresh()->status)->toBe(TaskStatus::Done);
 });
 
 it('changes sort', function () {
-    $task1 = Task::create([
-        'title' => 'First Task',
-        'status' => 'Todo',
-    ]);
-    $task2 = Task::create([
-        'title' => 'Second Task',
-        'status' => 'Todo',
-    ]);
+    [$task1, $task2] = Task::factory(2)->create();
 
     expect($task1->order_column)
         ->toBe(1);
