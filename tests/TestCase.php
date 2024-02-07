@@ -64,6 +64,7 @@ class TestCase extends Orchestra
             $table->id();
             $table->string('title');
             $table->string('status');
+            $table->integer('order_column');
             $table->timestamps();
         });
 
