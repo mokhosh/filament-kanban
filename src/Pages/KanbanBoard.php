@@ -30,6 +30,8 @@ class KanbanBoard extends Page implements HasForms
 
     protected static ?string $model = null;
 
+    protected static ?string $statusEnum = null;
+
     protected static string $recordTitleAttribute = 'title';
 
     protected static string $recordStatusAttribute = 'status';
