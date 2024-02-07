@@ -45,3 +45,13 @@ it('changes sort', function () {
     expect($task1->fresh()->order_column)
         ->toBe(2);
 });
+
+it('shows record edit modal', function () {
+    $task = Task::factory()->todo()->create();
+
+    livewire(TestBoard::class)
+        ->assertSee('Edit Record')
+        ->call('recordClicked', $task->id, [])
+        ->assertDispatched('open-modal', id: 'kanban--edit-record-modal');
+});
+
