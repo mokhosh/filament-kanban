@@ -31,6 +31,8 @@ trait HasStatusChange
 
     public function onSortChanged(int $recordId, string $status, array $orderedIds): void
     {
-        //
+        if (method_exists(static::$model, 'setNewOrder')) {
+            static::$model::setNewOrder($orderedIds);
+        }
     }
 }
