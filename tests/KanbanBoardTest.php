@@ -28,7 +28,7 @@ it('changes status', function () {
     $task = Task::factory()->todo()->create();
 
     livewire(TestBoard::class)
-        ->call('onStatusChanged', $task->id, TaskStatus::Done->value, [], []);
+        ->dispatch('status-changed', $task->id, TaskStatus::Done->value, [], []);
 
     expect($task->fresh()->status)->toBe(TaskStatus::Done);
 });
@@ -40,7 +40,7 @@ it('changes sort', function () {
         ->toBe(1);
 
     livewire(TestBoard::class)
-        ->call('onSortChanged', $task1->id, TaskStatus::Todo->value, [$task2->id, $task1->id]);
+        ->dispatch('sort-changed', $task1->id, TaskStatus::Todo->value, [$task2->id, $task1->id]);
 
     expect($task1->fresh()->order_column)
         ->toBe(2);
