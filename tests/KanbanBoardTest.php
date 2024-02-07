@@ -61,3 +61,15 @@ it('can hide record edit modal', function () {
         ->assertDontSee('Edit Record');
 });
 
+it('edits records', function () {
+    $task = Task::factory()->todo()->create();
+
+    livewire(TestBoard::class)
+        ->call('recordClicked', $task->id, [])
+        ->set('editModalFormState.title', $newTitle = 'New Title')
+        ->call('editModalFormSubmitted')
+        ->assertDispatched('close-modal', id: 'kanban--edit-record-modal');
+
+    expect($task->fresh()->title)
+        ->toBe($newTitle);
+});
