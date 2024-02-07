@@ -30,7 +30,7 @@ class TestBoard extends KanbanBoard
         Task::setNewOrder($orderedIds);
     }
 
-    protected function getEditModalFormSchema(null|int $recordId): array
+    protected function getEditModalFormSchema(?int $recordId): array
     {
         return [
             TextInput::make('title'),

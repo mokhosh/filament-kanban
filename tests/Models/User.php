@@ -9,7 +9,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable implements FilamentUser
 {
     protected $guarded = [];
+
     public $timestamps = false;
+
     protected $table = 'users';
 
     public function canAccessPanel(Panel $panel): bool
