@@ -3,7 +3,6 @@
 namespace Mokhosh\FilamentKanban\Tests\Pages;
 
 use Filament\Forms\Components\TextInput;
-use Illuminate\Support\Collection;
 use Mokhosh\FilamentKanban\Pages\KanbanBoard;
 use Mokhosh\FilamentKanban\Tests\Enums\TaskStatus;
 use Mokhosh\FilamentKanban\Tests\Models\Task;
@@ -12,12 +11,9 @@ class TestBoardWithCustomViews extends KanbanBoard
 {
     protected static ?string $model = Task::class;
 
-    protected static string $recordView = 'kanban-record';
+    protected static ?string $statusEnum = TaskStatus::class;
 
-    protected function statuses(): Collection
-    {
-        return TaskStatus::statuses();
-    }
+    protected static string $recordView = 'kanban-record';
 
     protected function getEditModalFormSchema(?int $recordId): array
     {
