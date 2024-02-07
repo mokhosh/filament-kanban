@@ -55,3 +55,9 @@ it('shows record edit modal', function () {
         ->assertDispatched('open-modal', id: 'kanban--edit-record-modal');
 });
 
+it('can hide record edit modal', function () {
+    livewire(TestBoard::class)
+        ->set('disableEditModal', true)
+        ->assertDontSee('Edit Record');
+});
+
