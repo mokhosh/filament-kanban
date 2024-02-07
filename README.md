@@ -31,9 +31,11 @@ php artisan filament-kanban:install
 ## Ingredients!
 
 You should have some `Model` with a `status` column. This column can be called `status` in the database or anything else.
+
 I'm also assuming there's a `title` column on your model, but you can have `name` or any other column to represent a title.
 
 I recommend you create a string backed `Enum` to define your statuses.
+
 You can use our `IsKanbanStatus` trait, so you can easily transform your enum cases for the Kanban board using the `statuses` method on your enum.
 
 ```php
@@ -164,6 +166,7 @@ protected static string $scriptsView = 'filament-kanban::kanban-scripts';
 ### Disabling the modal
 
 Edit modal is enabled by default, and you can show it by clicking on records.
+
 If you need to disable the edit modal override this property:
 
 ```php
@@ -215,6 +218,7 @@ protected string $editModalCancelButtonLabel = 'Cancel';
 ```
 
 ## Video Tutorial
+
 Are you a visual learner? I have created some Youtube videos to get you started with the package:
 
 [![Creating a Kanban Board in FilamentPHP using filament-kanban: Part 1, Basic setup](https://i3.ytimg.com/vi/GquNTj50E78/maxresdefault.jpg)](https://www.youtube.com/watch?v=GquNTj50E78)
@@ -258,7 +262,6 @@ Please review [our security policy](../../security/policy) on how to report secu
 ## TODO
 
 - [ ] use filament actions for edit modal
-- [ ] write tests and check wth the testing folder does
 
 ## Credits
 
