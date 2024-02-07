@@ -50,11 +50,10 @@ class KanbanBoard extends Page implements HasForms
 
     protected function getViewData(): array
     {
-        $records = $this->records()
-            ->map($this->transformRecords(...));
+        $records = $this->records();
         $statuses = $this->statuses()
             ->map(function ($status) use ($records) {
-                $status['records'] = $records->where('status', $status['id'])->all();
+                $status['records'] = $this->filterRecordsByStatus($records, $status);
 
                 return $status;
             });
@@ -64,20 +63,14 @@ class KanbanBoard extends Page implements HasForms
         ];
     }
 
-    protected function transformRecords(Model $record): Collection
+    protected function filterRecordsByStatus(Collection $records, array $status): array
     {
-        return collect([
-            'id' => $record->id,
-            'title' => $record->{static::$recordTitleAttribute},
-            'status' => $record->{static::$recordStatusAttribute} instanceof UnitEnum ?
-                $record->{static::$recordStatusAttribute}->value :
-                $record->{static::$recordStatusAttribute},
-            'just_updated' => $record->updated_at->diffInSeconds(now()) < 3,
-        ])->merge($this->additionalRecordData($record));
-    }
+        $statusIsCastToEnum = $records->first()?->status instanceof UnitEnum;
 
-    protected function additionalRecordData(Model $record): Collection
-    {
-        return collect([]);
+        $filter = $statusIsCastToEnum
+            ? static::$statusEnum::from($status['id'])
+            : $status['id'];
+
+        return $records->where(static::$recordStatusAttribute, $filter)->all();
     }
 }
