@@ -3,8 +3,8 @@
 use Mokhosh\FilamentKanban\Tests\Enums\TaskStatus;
 use Mokhosh\FilamentKanban\Tests\Models\Task;
 use Mokhosh\FilamentKanban\Tests\Pages\TestBoard;
-
 use Mokhosh\FilamentKanban\Tests\Pages\TestBoardWithCustomViews;
+
 use function Pest\Laravel\actingAs;
 use function Pest\Livewire\livewire;
 
