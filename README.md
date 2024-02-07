@@ -28,7 +28,7 @@ Publish the assets so the styles are correct:
 php artisan filament-kanban:install
 ```
 
-## Ingredients!
+## Before You Start
 
 > [!IMPORTANT]  
 > You should have some `Model` with a `status` column. This column can be called `status` in the database or anything else.
