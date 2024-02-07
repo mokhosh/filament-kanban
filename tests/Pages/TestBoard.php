@@ -25,6 +25,11 @@ class TestBoard extends KanbanBoard
         Task::find($recordId)->update(['status' => $status]);
     }
 
+    public function onSortChanged(int $recordId, string $status, array $orderedIds): void
+    {
+        Task::setNewOrder($orderedIds);
+    }
+
     protected function getEditModalFormSchema(null|int $recordId): array
     {
         return [
