@@ -17,6 +17,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Livewire\LivewireServiceProvider;
 use Mokhosh\FilamentKanban\FilamentKanbanServiceProvider;
 use Mokhosh\FilamentKanban\Tests\Models\User;
+use Mokhosh\FilamentKanban\Tests\Providers\TestPanelProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 use RyanChandler\BladeCaptureDirective\BladeCaptureDirectiveServiceProvider;
 

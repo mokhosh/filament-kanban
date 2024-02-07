@@ -1,6 +1,6 @@
 <?php
 
-namespace Mokhosh\FilamentKanban\Tests;
+namespace Mokhosh\FilamentKanban\Tests\Providers;
 
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
