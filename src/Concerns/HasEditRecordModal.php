@@ -59,7 +59,7 @@ trait HasEditRecordModal
 
     protected function getEditModalRecordData(int $recordId, array $data): array
     {
-        return $data;
+        return static::$model::find($recordId)->toArray();
     }
 
     protected function editRecord(int $recordId, array $data, array $state): void
