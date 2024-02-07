@@ -13,8 +13,10 @@ use Filament\Support\SupportServiceProvider;
 use Filament\Tables\TablesServiceProvider;
 use Filament\Widgets\WidgetsServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Database\Schema\Blueprint;
 use Livewire\LivewireServiceProvider;
 use Mokhosh\FilamentKanban\FilamentKanbanServiceProvider;
+use Mokhosh\FilamentKanban\Tests\Models\User;
 use Orchestra\Testbench\TestCase as Orchestra;
 use RyanChandler\BladeCaptureDirective\BladeCaptureDirectiveServiceProvider;
 
@@ -25,8 +27,10 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'Mokhosh\\FilamentKanban\\Database\\Factories\\' . class_basename($modelName) . 'Factory'
+            fn (string $modelName) => 'Mokhosh\\FilamentKanban\\Tests\\Factories\\' . class_basename($modelName) . 'Factory'
         );
+
+        $this->setUpDatabase($this->app);
     }
 
     protected function getPackageProviders($app)
@@ -45,16 +49,30 @@ class TestCase extends Orchestra
             TablesServiceProvider::class,
             WidgetsServiceProvider::class,
             FilamentKanbanServiceProvider::class,
+            TestPanelProvider::class,
         ];
     }
 
     public function getEnvironmentSetUp($app)
     {
         config()->set('database.default', 'testing');
+    }
 
-        /*
-        $migration = include __DIR__.'/../database/migrations/create_filament-kanban_table.php.stub';
-        $migration->up();
-        */
+    protected function setUpDatabase($app)
+    {
+        $app['db']->connection()->getSchemaBuilder()->create('tasks', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->string('status');
+            $table->timestamps();
+        });
+
+        $app['db']->connection()->getSchemaBuilder()->create('users', function (Blueprint $table) {
+            $table->id();
+            $table->string('email');
+            $table->string('name');
+        });
+
+        $this->admin = User::create(['email' => 'admin@domain.com', 'name' => 'Admin']);
     }
 }
