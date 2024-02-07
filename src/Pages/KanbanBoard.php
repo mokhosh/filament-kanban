@@ -38,7 +38,7 @@ class KanbanBoard extends Page implements HasForms
 
     protected function statuses(): Collection
     {
-        return collect();
+        return static::$statusEnum::statuses();
     }
 
     protected function records(): Collection
