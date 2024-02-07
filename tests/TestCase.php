@@ -56,6 +56,7 @@ class TestCase extends Orchestra
     public function getEnvironmentSetUp($app)
     {
         config()->set('database.default', 'testing');
+        config()->set('view.paths', [__DIR__ . '/Views']);
     }
 
     protected function setUpDatabase($app)
