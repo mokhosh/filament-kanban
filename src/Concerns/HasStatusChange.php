@@ -15,7 +15,7 @@ trait HasStatusChange
     public function onStatusChanged(int $recordId, string $status, array $fromOrderedIds, array $toOrderedIds): void
     {
         static::$model::find($recordId)->update([
-            static::$recordStatusAttribute => $status
+            static::$recordStatusAttribute => $status,
         ]);
 
         if (method_exists(static::$model, 'setNewOrder')) {
