@@ -7,24 +7,6 @@ use Mokhosh\FilamentKanban\Pages\KanbanBoard;
 
 class DummyClass extends KanbanBoard
 {
-    protected function statuses(): Collection
-    {
-        // return StatusEnum::statuses();
-    }
-
-    protected function records(): Collection
-    {
-        // return Model::latest('updated_at')->get();
-    }
-
-    public function onStatusChanged(int $recordId, string $status, array $fromOrderedIds, array $toOrderedIds): void
-    {
-        // Model::find($recordId)->update(['status' => $status]);
-        // Model::setNewOrder($toOrderedIds);
-    }
-
-    public function onSortChanged(int $recordId, string $status, array $orderedIds): void
-    {
-        // Model::setNewOrder($orderedIds);
-    }
+    protected static ?string $model = Model::class;
+    protected static ?string $statusEnum = ModelStatus::class;
 }
