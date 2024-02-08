@@ -221,6 +221,13 @@ protected string $editModalSaveButtonLabel = 'Save';
 protected string $editModalCancelButtonLabel = 'Cancel';
 ```
 
+### Flashing Recently Updated Records
+
+You might want to have some visual feedback when a record has been updated. All you need to do is to use the `HasRecentUpdateIndication` trait in your `Model`.
+
+If you're also using [Spatie Eloquent Sortable](https://github.com/spatie/eloquent-sortable) you might experience all records being flashed at the same time. This is because [Eloquent Sortable](https://github.com/spatie/eloquent-sortable) updates the `order_column` of all models when the sort changes.
+In order to fix that, publish their config and set `ignore_timestamps` to `true`.
+
 ## Video Tutorial
 
 Are you a visual learner? I have created some Youtube videos to get you started with the package:
