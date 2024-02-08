@@ -2,7 +2,7 @@
 
 All notable changes to `filament-kanban` will be documented in this file.
 
-## Version 2.0.0 🎉 - 2024-02-07
+## Version 2.x 🎉 - 2024-02-08
 
 ### Big update with breaking changes
 
@@ -91,6 +91,99 @@ class UserDashboard extends KanbanBoard
     protected static ?string $model = User::class;
     protected static ?string $statusEnum = UserStatus::class;
 }
+
+```
+## Version 2.0.0 🎉 - 2024-02-07
+
+### Big update with breaking changes
+
+- I've added tests. It was a challenge as there is very little resources on how to test FilamentPHP packages 😎
+- We now pass the whole `Model` to the views. So, you don't need to define the data you need to use. Just use them.
+- You now tell us which `Model` you're managing on this Kanban board, and we do most things for you. You don't have to override any methods. This includes loading records, updating them, sorting them, editing them, etc.
+- We now include a text input for editing the title in the edit form by default.
+
+Imagine if you had this:
+
+```php
+<?php
+
+namespace App\Filament\Pages;
+
+use App\Enums\UserStatus;
+use App\Models\User;
+use Filament\Forms\Components\TextInput;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
+use Mokhosh\FilamentKanban\Pages\KanbanBoard;
+
+class UserDashboard extends KanbanBoard
+{
+    protected function statuses(): Collection
+    {
+        return UserStatus::statuses();
+    }
+
+    protected function records(): Collection
+    {
+        return User::ordered()->get();
+    }
+
+    public function onStatusChanged(int $recordId, string $status, array $fromOrderedIds, array $toOrderedIds): void
+    {
+        User::find($recordId)->update(['status' => $status]);
+
+        User::setNewOrder($toOrderedIds);
+    }
+
+    public function onSortChanged(int $recordId, string $status, array $orderedIds): void
+    {
+        User::find($recordId)->touch('updated_at');
+        
+        User::setNewOrder($orderedIds);
+    }
+
+    protected function getEditModalFormSchema(null|int $recordId): array
+    {
+        return [
+            TextInput::make('title'),
+        ];
+    }
+
+    protected function getEditModalRecordData($recordId, $data): array
+    {
+        return User::find($recordId)->toArray();
+    }
+
+    protected function editRecord($recordId, array $data, array $state): void
+    {
+        User::find($recordId)->update([
+            'title' => $data['title']
+        ]);
+    }
+
+    protected function additionalRecordData(Model $record): Collection
+    {
+        return collect([
+            'deficiencies' => $record->deficiencies,
+        ]);
+    }
+}
+
+
+```
+Now you can have just this:
+
+```php
+use App\Enums\UserStatus;
+use App\Models\User;
+use Mokhosh\FilamentKanban\Pages\KanbanBoard;
+
+class UserDashboard extends KanbanBoard
+{
+    protected static ?string $model = User::class;
+    protected static ?string $statusEnum = UserStatus::class;
+}
+
 
 ```
 ## v1.11.0 - 2024-01-30
