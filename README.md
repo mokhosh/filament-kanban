@@ -92,6 +92,8 @@ protected function statuses(): Collection
 }
 ```
 
+## Advanced Usage
+
 You can override the `records` method, to customize how the records or items that you want to see on your board are retrieved.
 
 ```php
