@@ -36,7 +36,7 @@ body:
     attributes:
       label: PHP Version
       description: What version of PHP are you running? Please be as specific as possible
-      placeholder: 8.2.0
+      placeholder: 8.3.0
     validations:
       required: true
   - type: input
@@ -44,7 +44,7 @@ body:
     attributes:
       label: Laravel Version
       description: What version of Laravel are you running? Please be as specific as possible
-      placeholder: 9.0.0
+      placeholder: 11.0.0
     validations:
       required: true
   - type: dropdown
@@ -57,6 +57,18 @@ body:
         - macOS
         - Windows
         - Linux
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: Which browsers does with happen with?
+      description: You may select more than one.
+      multiple: true
+      options:
+        - Arc
+        - Chrome
+        - Firefox
+        - Safari
+        - Edge
   - type: textarea
     id: notes
     attributes:
