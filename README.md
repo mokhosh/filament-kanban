@@ -80,18 +80,6 @@ protected static ?string $model = User::class;
 protected static ?string $statusEnum = UserStatus::class;
 ```
 
-Or alternatively, you can override the `statuses` method:
-
-```php
-protected function statuses(): Collection
-{
-     return [
-         ['id' => 'user', 'title' => 'User'],
-         ['id' => 'admin', 'title' => 'Admin'],
-     ];
-}
-```
-
 ## Upgrade Guide
 
 If you have version 1.x on your application, and you want to upgrade to version 2.x, here is your checklist:
@@ -108,6 +96,18 @@ You can override the `records` method, to customize how the records or items tha
 protected function records(): Collection
 {
     return User::where('role', 'admin')->get();
+}
+```
+
+If you don't want to define an `Enum` for your statuses, or you have a special logic for retrieving your statuses, you can override the `statuses` method:
+
+```php
+protected function statuses(): Collection
+{
+     return [
+         ['id' => 'user', 'title' => 'User'],
+         ['id' => 'admin', 'title' => 'Admin'],
+     ];
 }
 ```
 
