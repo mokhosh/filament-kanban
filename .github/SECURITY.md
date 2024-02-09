@@ -1,3 +1,3 @@
 # Security Policy
 
-If you discover any security related issues, please email mskhoshnazar@gmail.com instead of using the issue tracker.
+If you discover any security related issues, you're probably using the package wrong!
