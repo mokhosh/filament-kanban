@@ -69,13 +69,13 @@ This creates a good starting point for your Kanban board. You can customize the 
 You should override the `model` property, so we can load your records.
 
 ```php
-protected static ?string $model = User::class;
+protected static string $model = User::class;
 ```
 
 You should also override the `statusEnum` property, which defines your statuses.
 
 ```php
-protected static ?string $statusEnum = UserStatus::class;
+protected static string $statusEnum = UserStatus::class;
 ```
 
 ## Upgrade Guide
