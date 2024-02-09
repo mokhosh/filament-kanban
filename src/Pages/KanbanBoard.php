@@ -26,9 +26,9 @@ class KanbanBoard extends Page implements HasForms
 
     protected static string $scriptsView = 'filament-kanban::kanban-scripts';
 
-    protected static ?string $model = null;
+    protected static string $model;
 
-    protected static ?string $statusEnum = null;
+    protected static string $statusEnum;
 
     protected static string $recordTitleAttribute = 'title';
 
