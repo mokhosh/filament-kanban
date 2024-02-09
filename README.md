@@ -64,17 +64,15 @@ You can create a new Kanban board called `UsersKanbanBoard` using this artisan c
 php artisan make:kanban UsersKanbanBoard
 ```
 
-This will create a good starting point for your Kanban board. From there you can start customizing the Kanban board to your liking.
+This creates a good starting point for your Kanban board. You can customize the Kanban board to your liking.
 
-> [!IMPORTANT]  
-> You should override the `model` property, so we can load your records.
+You should override the `model` property, so we can load your records.
 
 ```php
 protected static ?string $model = User::class;
 ```
 
-> [!IMPORTANT]  
-> You should also override the `statusEnum` property, which defines your statuses.
+You should also override the `statusEnum` property, which defines your statuses.
 
 ```php
 protected static ?string $statusEnum = UserStatus::class;
