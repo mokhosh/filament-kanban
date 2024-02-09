@@ -86,7 +86,7 @@ If you have version 1.x on your application, and you want to upgrade to version 
 
 - [ ] You need to override `$model` and `$statusEnum` as mentioned in [the last part](#usage)
 - [ ] If you have published `kanban-record.blade.php` view, you need to use `$record` as a `Model` instance instead of an `array`.
-- [ ] If you're overriding `KanbanBoard` methods just to do the default behaviour, you can safely remove them now. You should be able to get away with overriding 0 methods, if you don't have special requirements.
+- [ ] If you're overriding `KanbanBoard` methods just to do the default behaviour, you can safely remove them now. You should be able to get away with overriding 0 methods, if you don't have special requirements 🥳
 
 ## Advanced Usage
 
