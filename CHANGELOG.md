@@ -2,6 +2,11 @@
 
 All notable changes to `filament-kanban` will be documented in this file.
 
+## v2.1.0 - 2024-02-09
+
+- $model and $statusEnum cannot be `null`
+- add `HasRecentUpdateIndication` trait
+
 ## Version 2.x 🎉 - 2024-02-08
 
 ### Big update with breaking changes
@@ -78,6 +83,7 @@ class UserDashboard extends KanbanBoard
     }
 }
 
+
 ```
 Now you can have just this:
 
@@ -91,6 +97,7 @@ class UserDashboard extends KanbanBoard
     protected static ?string $model = User::class;
     protected static ?string $statusEnum = UserStatus::class;
 }
+
 
 ```
 ## Version 2.0.0 🎉 - 2024-02-07
@@ -170,6 +177,7 @@ class UserDashboard extends KanbanBoard
 }
 
 
+
 ```
 Now you can have just this:
 
@@ -183,6 +191,7 @@ class UserDashboard extends KanbanBoard
     protected static ?string $model = User::class;
     protected static ?string $statusEnum = UserStatus::class;
 }
+
 
 
 ```
