@@ -7,6 +7,6 @@ use Mokhosh\FilamentKanban\Pages\KanbanBoard;
 
 class DummyClass extends KanbanBoard
 {
-    protected static ?string $model = Model::class;
-    protected static ?string $statusEnum = ModelStatus::class;
+    protected static string $model = Model::class;
+    protected static string $statusEnum = ModelStatus::class;
 }
