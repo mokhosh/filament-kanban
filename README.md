@@ -120,53 +120,6 @@ public function onSortChanged(int $recordId, string $status, array $orderedIds):
 }
 ```
 
-## Customization
-
-### Changing the navigation icon
-
-```php
-protected static ?string $navigationIcon = 'heroicon-o-document-text';
-```
-
-### Changing the model property that's used as the title
-
-```php
-protected static string $recordTitleAttribute = 'title';
-```
-
-### Changing the model property that's used as the status
-
-```php
-protected static string $recordStatusAttribute = 'status';
-```
-
-### Customizing views
-
-You can publish the views using this artisan command:
-
-```bash
-php artisan vendor:publish --tag="filament-kanban-views"
-```
-
-I recommend you delete the files that you don't intend to customize and keep the ones you want to change.
-This way you will get any possible future updates for the original views.
-
-The above method will replace the views for all Kanban boards in your applications.
-
-Alternatively, you might want to change views for one of your boards. You can override each view by overriding these properties:
-
-```php
-protected static string $view = 'filament-kanban::kanban-board';
-
-protected static string $headerView = 'filament-kanban::kanban-header';
-
-protected static string $recordView = 'filament-kanban::kanban-record';
-
-protected static string $statusView = 'filament-kanban::kanban-status';
-
-protected static string $scriptsView = 'filament-kanban::kanban-scripts';
-```
-
 ## Edit modal
 
 ### Disabling the modal
@@ -221,6 +174,53 @@ protected string $editModalWidth = '2xl';
 protected string $editModalSaveButtonLabel = 'Save';
 
 protected string $editModalCancelButtonLabel = 'Cancel';
+```
+
+## Customization
+
+### Changing the navigation icon
+
+```php
+protected static ?string $navigationIcon = 'heroicon-o-document-text';
+```
+
+### Changing the model property that's used as the title
+
+```php
+protected static string $recordTitleAttribute = 'title';
+```
+
+### Changing the model property that's used as the status
+
+```php
+protected static string $recordStatusAttribute = 'status';
+```
+
+### Customizing views
+
+You can publish the views using this artisan command:
+
+```bash
+php artisan vendor:publish --tag="filament-kanban-views"
+```
+
+I recommend you delete the files that you don't intend to customize and keep the ones you want to change.
+This way you will get any possible future updates for the original views.
+
+The above method will replace the views for all Kanban boards in your applications.
+
+Alternatively, you might want to change views for one of your boards. You can override each view by overriding these properties:
+
+```php
+protected static string $view = 'filament-kanban::kanban-board';
+
+protected static string $headerView = 'filament-kanban::kanban-header';
+
+protected static string $recordView = 'filament-kanban::kanban-record';
+
+protected static string $statusView = 'filament-kanban::kanban-status';
+
+protected static string $scriptsView = 'filament-kanban::kanban-scripts';
 ```
 
 ### Flashing Recently Updated Records
