@@ -8,6 +8,16 @@ use Mokhosh\FilamentKanban\Tests\Pages\TestBoardWithCustomViews;
 use function Pest\Laravel\actingAs;
 use function Pest\Livewire\livewire;
 
+it('can make kanban board from the stub', function () {
+    $pagesPath = $this->app->basePath('app/Filament/Pages');
+
+    $this->artisan('make:kanban TestBoard')->assertExitCode(0);
+
+    expect($pagesPath.'/TestBoard.php')
+        ->toBeFile()
+        ->toContainAsFile('class TestBoard extends KanbanBoard');
+});
+
 it('loads statuses', function () {
     $statuses = TaskStatus::statuses()
         ->pluck('title')
