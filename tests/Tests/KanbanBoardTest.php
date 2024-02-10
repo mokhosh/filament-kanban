@@ -13,7 +13,7 @@ it('can make kanban board from the stub', function () {
 
     $this->artisan('make:kanban TestBoard')->assertExitCode(0);
 
-    expect($pagesPath.'/TestBoard.php')
+    expect($pagesPath . '/TestBoard.php')
         ->toBeFile()
         ->toContainAsFile('class TestBoard extends KanbanBoard');
 });
