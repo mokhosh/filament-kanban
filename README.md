@@ -286,6 +286,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## TODO
 
+- [ ] stop passing record to view for recordClick
 - [ ] use filament actions for edit modal
 
 ## Credits
