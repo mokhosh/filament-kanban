@@ -1,4 +1,12 @@
 <script>
+    function onStart() {
+        setTimeout(() => document.body.classList.add("grabbing"))
+    }
+
+    function onEnd() {
+        document.body.classList.remove("grabbing")
+    }
+
     function setData(dataTransfer, el) {
         dataTransfer.setData('id', el.id)
     }
@@ -25,10 +33,11 @@
 
         statuses.forEach(status => Sortable.create(document.getElementById(status), {
             group: 'filament-kanban',
-            dragClass: 'cursor-grabbing',
             ghostClass: 'opacity-50',
             animation: 150,
 
+            onStart,
+            onEnd,
             onUpdate,
             setData,
             onAdd,
