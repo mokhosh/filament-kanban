@@ -21,18 +21,17 @@
     }
 
     document.addEventListener('livewire:navigated', () => {
-        @foreach($statuses as $status)
-            {{-- dont touch this line --}}
-            Sortable.create(document.getElementById('{{ $status['id'] }}'), {
-                group: 'filament-kanban',
-                dragClass: 'cursor-grabbing',
-                ghostClass: 'opacity-50',
-                animation: 150,
+        const statuses = @js($statuses->map(fn ($status) => $status['id']))
 
-                onUpdate,
-                setData,
-                onAdd,
-            })
-        @endforeach
+        statuses.forEach(status => Sortable.create(document.getElementById(status), {
+            group: 'filament-kanban',
+            dragClass: 'cursor-grabbing',
+            ghostClass: 'opacity-50',
+            animation: 150,
+
+            onUpdate,
+            setData,
+            onAdd,
+        }))
     })
 </script>
