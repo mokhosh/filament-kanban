@@ -2,6 +2,11 @@
 
 All notable changes to `filament-kanban` will be documented in this file.
 
+## v2.2.0 - 2024-02-15
+
+- fix animations not working
+- fix cursor while grabbing
+
 ## fix the stub - 2024-02-09
 
 the stub now reflects latest changes
@@ -89,6 +94,7 @@ class UserDashboard extends KanbanBoard
 
 
 
+
 ```
 Now you can have just this:
 
@@ -102,6 +108,7 @@ class UserDashboard extends KanbanBoard
     protected static ?string $model = User::class;
     protected static ?string $statusEnum = UserStatus::class;
 }
+
 
 
 
@@ -185,6 +192,7 @@ class UserDashboard extends KanbanBoard
 
 
 
+
 ```
 Now you can have just this:
 
@@ -198,6 +206,7 @@ class UserDashboard extends KanbanBoard
     protected static ?string $model = User::class;
     protected static ?string $statusEnum = UserStatus::class;
 }
+
 
 
 
