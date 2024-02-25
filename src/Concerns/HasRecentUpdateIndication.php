@@ -3,9 +3,8 @@
 namespace Mokhosh\FilamentKanban\Concerns;
 
 use Illuminate\Database\Eloquent\Casts\Attribute;
-use Illuminate\Database\Eloquent\Model;
 
-/** @mixin Model */
+/** @deprecated Not necessary anymore. Can safely be removed. */
 trait HasRecentUpdateIndication
 {
     public function justUpdated(): Attribute
