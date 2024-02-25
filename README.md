@@ -231,7 +231,7 @@ protected static string $scriptsView = 'filament-kanban::kanban-scripts';
 
 ### Flashing Recently Updated Records
 
-You might want to have some visual feedback when a record has been updated. All you need to do is to use the `HasRecentUpdateIndication` trait in your `Model`.
+You get some visual feedback when a record has been just updated.
 
 If you're also using [Spatie Eloquent Sortable](https://github.com/spatie/eloquent-sortable) you might experience all records being flashed at the same time. This is because [Eloquent Sortable](https://github.com/spatie/eloquent-sortable) updates the `order_column` of all models when the sort changes.
 In order to fix that, publish their config and set `ignore_timestamps` to `true`.
@@ -286,6 +286,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## TODO
 
+- [ ] remove deprecated recently updated trait
 - [ ] stop passing record to view for recordClick
 - [ ] use filament actions for edit modal
 
