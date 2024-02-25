@@ -73,9 +73,10 @@ class TestCase extends Orchestra
         $app['db']->connection()->getSchemaBuilder()->create('users', function (Blueprint $table) {
             $table->id();
             $table->string('email');
+            $table->string('password');
             $table->string('name');
         });
 
-        $this->admin = User::create(['email' => 'admin@domain.com', 'name' => 'Admin']);
+        $this->admin = User::create(['email' => 'admin@domain.com', 'password' => 'password', 'name' => 'Admin']);
     }
 }
