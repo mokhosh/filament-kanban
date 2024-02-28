@@ -4,7 +4,7 @@
     @include(static::$headerView)
 
     <div
-        id="{{ $status['id'] }}"
+        data-status-id="{{ $status['id'] }}"
         class="flex flex-col flex-1 gap-2 p-3 bg-gray-200 dark:bg-gray-800 rounded-xl"
     >
         @foreach($status['records'] as $record)
