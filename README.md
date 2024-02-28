@@ -51,6 +51,29 @@ enum UserStatus: string
 }
 ```
 
+This trait adds a static `statuses()` method on your enum that will return the statuses defined in your enum in the appropriate format.
+
+If you don't want all cases of your enum to be present on the board, you can override this method and return a subset of cases:
+
+```php
+public static function kanbanCases(): array
+{
+    return [
+        static::CaseOne,
+        static::CaseThree,
+    ];
+}
+```
+
+`IsKanbanStatus` uses the `value` of your cases for both the `id` and the `title` of your statuses. You can customize how these as well:
+
+```php
+public function getTitle(): string
+{
+    return __($this->label());
+}
+```
+
 I recommend you cast the `status` attribute on your `Model` to the enum that you have created.
 
 > [!TIP]
