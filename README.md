@@ -65,7 +65,7 @@ public static function kanbanCases(): array
 }
 ```
 
-`IsKanbanStatus` uses the `value` of your cases for both the `id` and the `title` of your statuses. You can customize how these as well:
+`IsKanbanStatus` uses the `value` of your cases for the `title` of your statuses. You can customize how the title is retrieved as well:
 
 ```php
 public function getTitle(): string
