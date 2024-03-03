@@ -63,7 +63,7 @@ class KanbanBoard extends Page implements HasForms
 
     protected function filterRecordsByStatus(Collection $records, array $status): array
     {
-        $statusIsCastToEnum = $records->first()?->status instanceof UnitEnum;
+        $statusIsCastToEnum = $records->first()?->getAttribute(static::$recordStatusAttribute) instanceof UnitEnum;
 
         $filter = $statusIsCastToEnum
             ? static::$statusEnum::from($status['id'])
