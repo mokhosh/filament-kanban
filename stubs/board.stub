@@ -2,7 +2,6 @@
 
 namespace DummyNamespace;
 
-use Illuminate\Support\Collection;
 use Mokhosh\FilamentKanban\Pages\KanbanBoard;
 
 class DummyClass extends KanbanBoard
