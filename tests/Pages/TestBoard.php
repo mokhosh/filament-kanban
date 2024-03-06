@@ -21,7 +21,7 @@ class TestBoard extends KanbanBoard
             Forms\Components\Select::make('team')
                 ->relationship('team', 'name')
                 ->multiple()
-                ->options(User::pluck('name', 'id'))
+                ->options(User::pluck('name', 'id')),
         ];
     }
 }
