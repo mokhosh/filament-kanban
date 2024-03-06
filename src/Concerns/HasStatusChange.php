@@ -14,12 +14,12 @@ trait HasStatusChange
 
     public function onStatusChanged(int $recordId, string $status, array $fromOrderedIds, array $toOrderedIds): void
     {
-        static::$model::find($recordId)->update([
+        $this->getEloquentQuery->find($recordId)->update([
             static::$recordStatusAttribute => $status,
         ]);
 
         if (method_exists(static::$model, 'setNewOrder')) {
-            static::$model::setNewOrder($toOrderedIds);
+            $this->getEloquentQuery->setNewOrder($toOrderedIds);
         }
     }
 
@@ -32,7 +32,7 @@ trait HasStatusChange
     public function onSortChanged(int $recordId, string $status, array $orderedIds): void
     {
         if (method_exists(static::$model, 'setNewOrder')) {
-            static::$model::setNewOrder($orderedIds);
+            $this->getEloquentQuery->setNewOrder($orderedIds);
         }
     }
 }
