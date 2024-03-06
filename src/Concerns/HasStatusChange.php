@@ -19,7 +19,7 @@ trait HasStatusChange
         ]);
 
         if (method_exists(static::$model, 'setNewOrder')) {
-            $this->getEloquentQuery->setNewOrder($toOrderedIds);
+            $this->getEloquentQuery()->setNewOrder($toOrderedIds);
         }
     }
 
@@ -32,7 +32,7 @@ trait HasStatusChange
     public function onSortChanged(int $recordId, string $status, array $orderedIds): void
     {
         if (method_exists(static::$model, 'setNewOrder')) {
-            $this->getEloquentQuery->setNewOrder($orderedIds);
+            $this->getEloquentQuery()->setNewOrder($orderedIds);
         }
     }
 }
