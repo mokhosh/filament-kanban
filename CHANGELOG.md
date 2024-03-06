@@ -2,6 +2,10 @@
 
 All notable changes to `filament-kanban` will be documented in this file.
 
+## v2.5.0 - 2024-03-06
+
+Save relationships too when saving a record.
+
 ## v2.4.0 - 2024-02-28
 
 - Allow int backed enums to be used as status enum
@@ -108,6 +112,7 @@ class UserDashboard extends KanbanBoard
 
 
 
+
 ```
 Now you can have just this:
 
@@ -121,6 +126,7 @@ class UserDashboard extends KanbanBoard
     protected static ?string $model = User::class;
     protected static ?string $statusEnum = UserStatus::class;
 }
+
 
 
 
@@ -210,6 +216,7 @@ class UserDashboard extends KanbanBoard
 
 
 
+
 ```
 Now you can have just this:
 
@@ -223,6 +230,7 @@ class UserDashboard extends KanbanBoard
     protected static ?string $model = User::class;
     protected static ?string $statusEnum = UserStatus::class;
 }
+
 
 
 
