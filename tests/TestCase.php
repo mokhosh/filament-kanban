@@ -77,6 +77,11 @@ class TestCase extends Orchestra
             $table->string('name');
         });
 
+        $app['db']->connection()->getSchemaBuilder()->create('task_user', function (Blueprint $table) {
+            $table->foreignId('task_id');
+            $table->foreignId('user_id');
+        });
+
         $this->admin = User::create(['email' => 'admin@domain.com', 'password' => 'password', 'name' => 'Admin']);
     }
 }
