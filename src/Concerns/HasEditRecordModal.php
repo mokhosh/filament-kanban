@@ -56,7 +56,8 @@ trait HasEditRecordModal
     {
         return $form
             ->schema($this->getEditModalFormSchema($this->editModalRecordId))
-            ->statePath('editModalFormState');
+            ->statePath('editModalFormState')
+            ->model($this->editModalRecordId ? static::$model::find($this->editModalRecordId) : static::$model);
     }
 
     protected function getEditModalRecordData(int $recordId, array $data): array

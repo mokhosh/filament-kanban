@@ -93,3 +93,15 @@ it('edits records', function () {
     expect($task->fresh()->title)
         ->toBe($newTitle);
 });
+
+it('saves relationships', function () {
+    $task = Task::factory()->create();
+
+    livewire(TestBoard::class)
+        ->call('recordClicked', $task->id, [])
+        ->set('editModalFormState.team', [1])
+        ->call('editModalFormSubmitted');
+
+    expect($task->fresh()->team)
+        ->not->toBeEmpty();
+});
