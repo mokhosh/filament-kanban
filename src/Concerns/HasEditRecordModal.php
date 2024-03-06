@@ -95,9 +95,4 @@ trait HasEditRecordModal
     {
         return $this->editModalCancelButtonLabel;
     }
-
-    protected function getEloquentQuery(): Builder
-    {
-        return static::$model::query();
-    }
 }
