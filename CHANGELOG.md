@@ -2,6 +2,20 @@
 
 All notable changes to `filament-kanban` will be documented in this file.
 
+## v2.6.0 - 2024-03-07
+
+### What's Changed
+
+* Update KanbanBoard to not require a status property by @brenjt in https://github.com/mokhosh/filament-kanban/pull/20
+* Add getEloquentQuery in queries by @aislandener in https://github.com/mokhosh/filament-kanban/pull/19
+
+### New Contributors
+
+* @brenjt made their first contribution in https://github.com/mokhosh/filament-kanban/pull/20
+* @aislandener made their first contribution in https://github.com/mokhosh/filament-kanban/pull/19
+
+**Full Changelog**: https://github.com/mokhosh/filament-kanban/compare/v2.5.0...v2.6.0
+
 ## v2.5.0 - 2024-03-06
 
 Save relationships too when saving a record.
@@ -113,6 +127,7 @@ class UserDashboard extends KanbanBoard
 
 
 
+
 ```
 Now you can have just this:
 
@@ -126,6 +141,7 @@ class UserDashboard extends KanbanBoard
     protected static ?string $model = User::class;
     protected static ?string $statusEnum = UserStatus::class;
 }
+
 
 
 
@@ -217,6 +233,7 @@ class UserDashboard extends KanbanBoard
 
 
 
+
 ```
 Now you can have just this:
 
@@ -230,6 +247,7 @@ class UserDashboard extends KanbanBoard
     protected static ?string $model = User::class;
     protected static ?string $statusEnum = UserStatus::class;
 }
+
 
 
 
