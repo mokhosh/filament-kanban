@@ -4,6 +4,7 @@ namespace Mokhosh\FilamentKanban\Concerns;
 
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
+use Illuminate\Database\Eloquent\Builder;
 
 trait HasEditRecordModal
 {
@@ -61,12 +62,12 @@ trait HasEditRecordModal
 
     protected function getEditModalRecordData(int $recordId, array $data): array
     {
-        return static::$model::find($recordId)->toArray();
+        return $this->getEloquentQuery()->find($recordId)->toArray();
     }
 
     protected function editRecord(int $recordId, array $data, array $state): void
     {
-        static::$model::find($recordId)->update($data);
+        $this->getEloquentQuery()->find($recordId)->update($data);
     }
 
     protected function getEditModalFormSchema(?int $recordId): array

@@ -8,6 +8,7 @@ use Illuminate\Support\Collection;
 use Mokhosh\FilamentKanban\Concerns\HasEditRecordModal;
 use Mokhosh\FilamentKanban\Concerns\HasStatusChange;
 use UnitEnum;
+use Illuminate\Database\Eloquent\Builder;
 
 class KanbanBoard extends Page implements HasForms
 {
@@ -41,7 +42,7 @@ class KanbanBoard extends Page implements HasForms
 
     protected function records(): Collection
     {
-        return static::$model::query()
+        return $this->getEloquentQuery()
             ->when(method_exists(static::$model, 'scopeOrdered'), fn ($query) => $query->ordered())
             ->get();
     }
@@ -70,5 +71,10 @@ class KanbanBoard extends Page implements HasForms
             : $status['id'];
 
         return $records->where(static::$recordStatusAttribute, $filter)->all();
+    }
+
+    protected function getEloquentQuery(): Builder
+    {
+        return static::$model::query();
     }
 }

@@ -14,7 +14,7 @@ trait HasStatusChange
 
     public function onStatusChanged(int $recordId, string $status, array $fromOrderedIds, array $toOrderedIds): void
     {
-        static::$model::find($recordId)->update([
+        $this->getEloquentQuery()->find($recordId)->update([
             static::$recordStatusAttribute => $status,
         ]);
 
