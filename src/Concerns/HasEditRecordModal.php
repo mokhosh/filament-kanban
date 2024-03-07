@@ -4,7 +4,6 @@ namespace Mokhosh\FilamentKanban\Concerns;
 
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
-use Illuminate\Database\Eloquent\Builder;
 
 trait HasEditRecordModal
 {

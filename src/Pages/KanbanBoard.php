@@ -4,11 +4,11 @@ namespace Mokhosh\FilamentKanban\Pages;
 
 use Filament\Forms\Contracts\HasForms;
 use Filament\Pages\Page;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 use Mokhosh\FilamentKanban\Concerns\HasEditRecordModal;
 use Mokhosh\FilamentKanban\Concerns\HasStatusChange;
 use UnitEnum;
-use Illuminate\Database\Eloquent\Builder;
 
 class KanbanBoard extends Page implements HasForms
 {
