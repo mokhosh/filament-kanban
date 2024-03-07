@@ -2,6 +2,18 @@
 
 All notable changes to `filament-kanban` will be documented in this file.
 
+## v2.6.1 - 2024-03-07
+
+### What's Changed
+
+* Fix the overflow hidden styling by @hussain4real in https://github.com/mokhosh/filament-kanban/pull/21
+
+### New Contributors
+
+* @hussain4real made their first contribution in https://github.com/mokhosh/filament-kanban/pull/21
+
+**Full Changelog**: https://github.com/mokhosh/filament-kanban/compare/v2.6.0...v2.6.1
+
 ## v2.6.0 - 2024-03-07
 
 ### What's Changed
@@ -128,6 +140,7 @@ class UserDashboard extends KanbanBoard
 
 
 
+
 ```
 Now you can have just this:
 
@@ -141,6 +154,7 @@ class UserDashboard extends KanbanBoard
     protected static ?string $model = User::class;
     protected static ?string $statusEnum = UserStatus::class;
 }
+
 
 
 
@@ -234,6 +248,7 @@ class UserDashboard extends KanbanBoard
 
 
 
+
 ```
 Now you can have just this:
 
@@ -247,6 +262,7 @@ class UserDashboard extends KanbanBoard
     protected static ?string $model = User::class;
     protected static ?string $statusEnum = UserStatus::class;
 }
+
 
 
 
