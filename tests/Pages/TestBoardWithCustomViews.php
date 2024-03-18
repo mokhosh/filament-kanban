@@ -15,7 +15,7 @@ class TestBoardWithCustomViews extends KanbanBoard
 
     protected static string $recordView = 'kanban-record';
 
-    protected function getEditModalFormSchema(?int $recordId): array
+    protected function getEditModalFormSchema(null | int | string $recordId): array
     {
         return [
             TextInput::make('title'),
