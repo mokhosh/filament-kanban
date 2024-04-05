@@ -15,6 +15,8 @@ trait HasEditRecordModal
 
     protected string $editModalTitle = 'Edit Record';
 
+    protected bool $editModalSlideOver = false;
+
     protected string $editModalWidth = '2xl';
 
     protected string $editModalSaveButtonLabel = 'Save';
@@ -79,6 +81,11 @@ trait HasEditRecordModal
     protected function getEditModalTitle(): string
     {
         return $this->editModalTitle;
+    }
+
+    protected function getEditModalSlideOver(): bool
+    {
+        return $this->editModalSlideOver;
     }
 
     protected function getEditModalWidth(): string
