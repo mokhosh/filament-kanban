@@ -2,7 +2,6 @@
 
 namespace Mokhosh\FilamentKanban\Pages;
 
-use Filament\Forms\Contracts\HasForms;
 use Filament\Pages\Page;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
