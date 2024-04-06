@@ -10,7 +10,7 @@ use Mokhosh\FilamentKanban\Concerns\HasEditRecordModal;
 use Mokhosh\FilamentKanban\Concerns\HasStatusChange;
 use UnitEnum;
 
-class KanbanBoard extends Page implements HasForms
+class KanbanBoard extends Page
 {
     use HasEditRecordModal;
     use HasStatusChange;
