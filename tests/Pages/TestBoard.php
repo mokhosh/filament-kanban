@@ -14,7 +14,7 @@ class TestBoard extends KanbanBoard
 
     protected static string $statusEnum = TaskStatus::class;
 
-    protected function getEditModalFormSchema(null | int | string $recordId): array
+    protected function getEditModalFormSchema(?int $recordId): array
     {
         return [
             Forms\Components\TextInput::make('title')->required(),

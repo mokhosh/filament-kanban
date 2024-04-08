@@ -16,7 +16,6 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Mokhosh\FilamentKanban\Tests\Pages\TestBoard;
 use Mokhosh\FilamentKanban\Tests\Pages\TestBoardWithCustomViews;
-use Mokhosh\FilamentKanban\Tests\Pages\TestBoardWithUlidTask;
 
 class TestPanelProvider extends PanelProvider
 {
@@ -28,7 +27,6 @@ class TestPanelProvider extends PanelProvider
             ->pages([
                 TestBoard::class,
                 TestBoardWithCustomViews::class,
-                TestBoardWithUlidTask::class,
             ])
             ->resources([
 

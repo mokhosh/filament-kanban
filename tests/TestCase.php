@@ -70,14 +70,6 @@ class TestCase extends Orchestra
             $table->timestamps();
         });
 
-        $app['db']->connection()->getSchemaBuilder()->create('ulid_tasks', function (Blueprint $table) {
-            $table->ulid();
-            $table->string('title');
-            $table->string('status');
-            $table->integer('order_column');
-            $table->timestamps();
-        });
-
         $app['db']->connection()->getSchemaBuilder()->create('users', function (Blueprint $table) {
             $table->id();
             $table->string('email');

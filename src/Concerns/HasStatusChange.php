@@ -7,12 +7,12 @@ use Livewire\Attributes\On;
 trait HasStatusChange
 {
     #[On('status-changed')]
-    public function statusChanged(int | string $recordId, string $status, array $fromOrderedIds, array $toOrderedIds): void
+    public function statusChanged(int $recordId, string $status, array $fromOrderedIds, array $toOrderedIds): void
     {
         $this->onStatusChanged($recordId, $status, $fromOrderedIds, $toOrderedIds);
     }
 
-    public function onStatusChanged(int | string $recordId, string $status, array $fromOrderedIds, array $toOrderedIds): void
+    public function onStatusChanged(int $recordId, string $status, array $fromOrderedIds, array $toOrderedIds): void
     {
         $this->getEloquentQuery()->find($recordId)->update([
             static::$recordStatusAttribute => $status,
@@ -24,12 +24,12 @@ trait HasStatusChange
     }
 
     #[On('sort-changed')]
-    public function sortChanged(int | string $recordId, string $status, array $orderedIds): void
+    public function sortChanged(int $recordId, string $status, array $orderedIds): void
     {
         $this->onSortChanged($recordId, $status, $orderedIds);
     }
 
-    public function onSortChanged(int | string $recordId, string $status, array $orderedIds): void
+    public function onSortChanged(int $recordId, string $status, array $orderedIds): void
     {
         if (method_exists(static::$model, 'setNewOrder')) {
             static::$model::setNewOrder($orderedIds);
