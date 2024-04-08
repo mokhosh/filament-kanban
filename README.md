@@ -195,7 +195,7 @@ The `data` array contains the form data, and the `state` array contains the full
 
 ### Customizing modal's appearance
 
-You can customize modal's title, size and the labels for save and cancel buttons:
+You can customize modal's title, size and the labels for save and cancel buttons, or use Filament's slide-over instead of a modal:
 
 ```php
 protected string $editModalTitle = 'Edit Record';
@@ -205,6 +205,8 @@ protected string $editModalWidth = '2xl';
 protected string $editModalSaveButtonLabel = 'Save';
 
 protected string $editModalCancelButtonLabel = 'Cancel';
+
+protected bool $editModalSlideOver = true;
 ```
 
 ## Customization
