@@ -200,6 +200,8 @@ You can customize modal's title, size and the labels for save and cancel buttons
 ```php
 protected string $editModalTitle = 'Edit Record';
 
+protected bool $editModalSlideOver = true;
+
 protected string $editModalWidth = '2xl';
 
 protected string $editModalSaveButtonLabel = 'Save';
