@@ -2,6 +2,18 @@
 
 All notable changes to `filament-kanban` will be documented in this file.
 
+## v2.8.0 - 2024-04-08
+
+### What's Changed
+
+* Add edit modal slideover option by @ryanmortier in https://github.com/mokhosh/filament-kanban/pull/31
+
+### New Contributors
+
+* @ryanmortier made their first contribution in https://github.com/mokhosh/filament-kanban/pull/31
+
+**Full Changelog**: https://github.com/mokhosh/filament-kanban/compare/v2.7.0...v2.8.0
+
 ## v2.7.0 - 2024-03-12
 
 ### What's Changed
@@ -154,6 +166,7 @@ class UserDashboard extends KanbanBoard
 
 
 
+
 ```
 Now you can have just this:
 
@@ -167,6 +180,7 @@ class UserDashboard extends KanbanBoard
     protected static ?string $model = User::class;
     protected static ?string $statusEnum = UserStatus::class;
 }
+
 
 
 
@@ -264,6 +278,7 @@ class UserDashboard extends KanbanBoard
 
 
 
+
 ```
 Now you can have just this:
 
@@ -277,6 +292,7 @@ class UserDashboard extends KanbanBoard
     protected static ?string $model = User::class;
     protected static ?string $statusEnum = UserStatus::class;
 }
+
 
 
 
