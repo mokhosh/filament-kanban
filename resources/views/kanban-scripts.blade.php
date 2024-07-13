@@ -29,18 +29,33 @@
     }
 
     document.addEventListener('livewire:navigated', () => {
-        const statuses = @js($statuses->map(fn ($status) => $status['id']))
-
-        statuses.forEach(status => Sortable.create(document.querySelector(`[data-status-id='${status}']`), {
-            group: 'filament-kanban',
-            ghostClass: 'opacity-50',
-            animation: 150,
-
-            onStart,
-            onEnd,
-            onUpdate,
-            setData,
-            onAdd,
-        }))
-    })
+        const statuses = @js($statuses->map(fn ($status) => $status['id']));
+    
+        statuses.forEach(status => {
+            const element = document.querySelector(`[data-status-id='${status}']`);
+            const sortableInstance = Sortable.create(element, {
+                group: 'filament-kanban',
+                ghostClass: 'opacity-50',
+                animation: 150,
+                onStart(event) {
+                    // Disable dragging initially
+                    sortableInstance.option('disabled', true);
+    
+                    // Re-enable dragging after 2 seconds
+                    setTimeout(() => {
+                        sortableInstance.option('disabled', false);
+                    }, 1000);
+    
+                    // Call your original onStart function if needed
+                    if (typeof onStart === 'function') {
+                        onStart(event);
+                    }
+                },
+                onEnd,
+                onUpdate,
+                setData,
+                onAdd,
+            });
+        });
+    });
 </script>
