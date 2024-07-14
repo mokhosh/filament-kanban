@@ -38,15 +38,10 @@
                 ghostClass: 'opacity-50',
                 animation: 150,
                 onStart(event) {
-                    // Disable dragging initially
                     sortableInstance.option('disabled', true);
-    
-                    // Re-enable dragging after 2 seconds
                     setTimeout(() => {
                         sortableInstance.option('disabled', false);
                     }, 1000);
-    
-                    // Call your original onStart function if needed
                     if (typeof onStart === 'function') {
                         onStart(event);
                     }
