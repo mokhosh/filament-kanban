@@ -12,7 +12,7 @@ class TestBoard extends KanbanBoard
 {
     protected static string $model = Task::class;
 
-    protected static string $statusEnum = TaskStatus::class;
+    protected static string $status = TaskStatus::class;
 
     protected function getEditModalFormSchema(null | int | string $recordId): array
     {

@@ -10,5 +10,5 @@ class TestBoardWithUlidTask extends KanbanBoard
 {
     protected static string $model = UlidTask::class;
 
-    protected static string $statusEnum = TaskStatus::class;
+    protected static string $status = TaskStatus::class;
 }
