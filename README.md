@@ -37,14 +37,14 @@ I'm also assuming there's a `title` column on your model, but you can have `name
 
 I recommend you create a string backed `Enum` to define your statuses.
 
-You can use our `IsKanbanStatus` trait, so you can easily transform your enum cases for the Kanban board using the `statuses` method on your enum.
+You can use our `KanbanStatusEnum` trait, so you can easily transform your enum cases for the Kanban board using the `statuses` method on your enum.
 
 ```php
-use Mokhosh\FilamentKanban\Concerns\IsKanbanStatus;
+use Mokhosh\FilamentKanban\Concerns\KanbanStatusEnum;
 
 enum UserStatus: string
 {
-    use IsKanbanStatus;
+    use KanbanStatusEnum;
 
     case User = 'User';
     case Admin = 'Admin';
@@ -128,7 +128,7 @@ public function onSortChanged(int $recordId, string $status, array $orderedIds):
 
 ### Customizing the Status Enum
 
-If you add `IsKanbanStatus` to your status `Enum`, this trait adds a static `statuses()` method to your enum that will return the statuses defined in your enum in the appropriate format.
+If you add `KanbanStatusEnum` to your status `Enum`, this trait adds a static `statuses()` method to your enum that will return the statuses defined in your enum in the appropriate format.
 
 If you don't want all cases of your enum to be present on the board, you can override this method and return a subset of cases:
 
@@ -142,7 +142,7 @@ public static function kanbanCases(): array
 }
 ```
 
-`IsKanbanStatus` uses the `value` of your cases for the `title` of your statuses. You can customize how the title is retrieved as well:
+`KanbanStatusEnum` uses the `value` of your cases for the `title` of your statuses. You can customize how the title is retrieved as well:
 
 ```php
 public function getTitle(): string
