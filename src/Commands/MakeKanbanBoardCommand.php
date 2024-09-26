@@ -14,7 +14,11 @@ class MakeKanbanBoardCommand extends GeneratorCommand
 
     protected function getStub()
     {
-        return __DIR__ . '/../../stubs/board.stub';
+         $stub="board.stub";
+        
+         return file_exists($customPath = $this->laravel->basePath("/stubs/filament-kanban/" . trim($stub, '/')))
+            ? $customPath
+            : __DIR__."/../../stubs/$stub";
     }
 
     protected function getDefaultNamespace($rootNamespace)
