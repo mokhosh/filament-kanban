@@ -53,7 +53,7 @@ class FilamentKanbanServiceProvider extends PackageServiceProvider
         }
 
         // Testing
-        Testable::mixin(new TestsFilamentKanban());
+        Testable::mixin(new TestsFilamentKanban);
     }
 
     protected function getAssetPackageName(): ?string
