@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\File;
 use Mokhosh\FilamentKanban\Tests\Enums\TaskStatus;
 use Mokhosh\FilamentKanban\Tests\Models\Task;
 use Mokhosh\FilamentKanban\Tests\Pages\TestBoard;
@@ -9,6 +10,7 @@ use function Pest\Laravel\actingAs;
 use function Pest\Livewire\livewire;
 
 it('can make kanban board from the stub', function () {
+    File::delete($this->app->basePath('app/Filament/Pages/TestBoard.php'));
     $pagesPath = $this->app->basePath('app/Filament/Pages');
 
     $this->artisan('make:kanban TestBoard')->assertExitCode(0);
