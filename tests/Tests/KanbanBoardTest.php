@@ -20,6 +20,21 @@ it('can make kanban board from the stub', function () {
         ->toContainAsFile('class TestBoard extends KanbanBoard');
 });
 
+it('can make kanban board from custom stub', function () {
+    File::delete($this->app->basePath('app/Filament/Pages/TestBoard.php'));
+    File::delete($this->app->basePath('stubs/filament-kanban/board.stub'));
+    File::ensureDirectoryExists($this->app->basePath('/stubs/filament-kanban/'));
+    File::put($this->app->basePath('/stubs/filament-kanban/board.stub'), 'custom stub');
+
+    $pagesPath = $this->app->basePath('app/Filament/Pages');
+
+    $this->artisan('make:kanban TestBoard')->assertExitCode(0);
+
+    expect($pagesPath . '/TestBoard.php')
+        ->toBeFile()
+        ->toContainAsFile('custom stub');
+});
+
 it('loads statuses', function () {
     $statuses = TaskStatus::statuses()
         ->pluck('title')
