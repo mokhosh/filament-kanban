@@ -2,6 +2,18 @@
 
 All notable changes to `filament-kanban` will be documented in this file.
 
+## v2.9.0 - 2024-10-01
+
+### What's Changed
+
+* Allow custom stub file to be used for board. by @Cybrarist in https://github.com/mokhosh/filament-kanban/pull/58
+
+### New Contributors
+
+* @Cybrarist made their first contribution in https://github.com/mokhosh/filament-kanban/pull/58
+
+**Full Changelog**: https://github.com/mokhosh/filament-kanban/compare/v2.8.0...v2.9.0
+
 ## v2.8.0 - 2024-04-08
 
 ### What's Changed
@@ -167,6 +179,7 @@ class UserDashboard extends KanbanBoard
 
 
 
+
 ```
 Now you can have just this:
 
@@ -180,6 +193,7 @@ class UserDashboard extends KanbanBoard
     protected static ?string $model = User::class;
     protected static ?string $statusEnum = UserStatus::class;
 }
+
 
 
 
@@ -279,6 +293,7 @@ class UserDashboard extends KanbanBoard
 
 
 
+
 ```
 Now you can have just this:
 
@@ -292,6 +307,7 @@ class UserDashboard extends KanbanBoard
     protected static ?string $model = User::class;
     protected static ?string $statusEnum = UserStatus::class;
 }
+
 
 
 
