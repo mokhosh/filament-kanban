@@ -35,6 +35,36 @@ it('can make kanban board from custom stub', function () {
         ->toContainAsFile('custom stub');
 });
 
+it('can make force recreate kanban board ', function () {
+    File::delete($this->app->basePath('app/Filament/Pages/TestBoard.php'));
+    File::delete($this->app->basePath('stubs/filament-kanban/board.stub'));
+    $pagesPath = $this->app->basePath('app/Filament/Pages');
+
+    $this->artisan('make:kanban TestBoard')->assertExitCode(0);
+
+    expect($pagesPath . '/TestBoard.php')
+        ->toBeFile()
+        ->toContainAsFile('class TestBoard extends KanbanBoard');
+
+    File::ensureDirectoryExists($this->app->basePath('/stubs/filament-kanban/'));
+    File::put($this->app->basePath('/stubs/filament-kanban/board.stub'), 'custom stub');
+
+    $this->artisan('make:kanban TestBoard')->assertExitCode(0);
+
+    expect($pagesPath . '/TestBoard.php')
+        ->toBeFile()
+        ->not->toContainAsFile('custom stub');
+
+    $this->artisan('make:kanban', [
+        'name' => 'TestBoard',
+        '--force' => true,
+    ])->assertExitCode(0);
+
+    expect($pagesPath . '/TestBoard.php')
+        ->toBeFile()
+        ->toContainAsFile('custom stub');
+});
+
 it('loads statuses', function () {
     $statuses = TaskStatus::statuses()
         ->pluck('title')
