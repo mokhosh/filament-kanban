@@ -30,7 +30,7 @@ php artisan filament-kanban:install
 
 ## Before You Start
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > You should have some `Model` with a `status` column. This column can be called `status` in the database or anything else.
 
 I'm also assuming there's a `title` column on your model, but you can have `name` or any other column to represent a title.
@@ -62,6 +62,9 @@ You can create a new Kanban board called `UsersKanbanBoard` using this artisan c
 
 ```php
 php artisan make:kanban UsersKanbanBoard
+
+# or, if the board is for a specific resource
+php artisan make:resource-kanban UsersKanbanBoard UserResource
 ```
 
 This creates a good starting point for your Kanban board. You can customize the Kanban board to your liking.
@@ -76,6 +79,24 @@ You should also override the `statusEnum` property, which defines your statuses.
 
 ```php
 protected static string $statusEnum = UserStatus::class;
+```
+
+If you made a board for a specific resource, you should also override the `$resource` property:
+
+```php
+protected static string $resource = Resource::class;
+```
+
+Then, don't forget to register the page inside your Filament resource :
+
+```php
+public static function getPages(): array
+{
+    return [
+        'index' => Pages\ManageUsers::route('/'),
+        'kanban' => Pages\UsersKanbanBoard::route('/kanban'),
+    ];
+}
 ```
 
 ## Upgrade Guide
@@ -270,7 +291,7 @@ Are you a visual learner? I have created some Youtube videos to get you started 
 > [!WARNING]
 > These videos are recorded with version 1.x of the package.
 > It is now much simpler to use the package, and requires much less code from you.
-> 
+>
 > Hopefully, version 2.x is simple enough to not require videos, but you can still learn a thing or two from these.
 
 [![Creating a Kanban Board in FilamentPHP using filament-kanban: Part 1, Basic setup](https://i3.ytimg.com/vi/GquNTj50E78/maxresdefault.jpg)](https://www.youtube.com/watch?v=GquNTj50E78)

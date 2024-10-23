@@ -2,16 +2,17 @@
 
 namespace Mokhosh\FilamentKanban;
 
-use Filament\Support\Assets\Asset;
 use Filament\Support\Assets\Css;
-use Filament\Support\Facades\FilamentAsset;
+use Filament\Support\Assets\Asset;
 use Illuminate\Filesystem\Filesystem;
+use Spatie\LaravelPackageTools\Package;
+use Filament\Support\Facades\FilamentAsset;
 use Livewire\Features\SupportTesting\Testable;
-use Mokhosh\FilamentKanban\Commands\MakeKanbanBoardCommand;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Mokhosh\FilamentKanban\Testing\TestsFilamentKanban;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
-use Spatie\LaravelPackageTools\Package;
-use Spatie\LaravelPackageTools\PackageServiceProvider;
+use Mokhosh\FilamentKanban\Commands;
+use Mokhosh\FilamentKanban\Commands;
 
 class FilamentKanbanServiceProvider extends PackageServiceProvider
 {
@@ -79,7 +80,8 @@ class FilamentKanbanServiceProvider extends PackageServiceProvider
     protected function getCommands(): array
     {
         return [
-            MakeKanbanBoardCommand::class,
+            Commands\MakeKanbanBoardCommand::class,
+            Commands\MakeKanbanResourceBoardCommand::class,
         ];
     }
 }

@@ -1,0 +1,14 @@
+<?php
+
+namespace DummyNamespace;
+
+use Mokhosh\FilamentKanban\Resources\Pages\KanbanBoard;
+
+class DummyClass extends KanbanBoard
+{
+    protected static string $model = Model::class;
+
+    protected static string $statusEnum = ModelStatus::class;
+
+    protected static string $resource = Resource::class;
+}
