@@ -102,10 +102,10 @@ If you don't want to define an `Enum` for your statuses, or you have a special l
 ```php
 protected function statuses(): Collection
 {
-     return [
+     return collect([
          ['id' => 'user', 'title' => 'User'],
          ['id' => 'admin', 'title' => 'Admin'],
-     ];
+     ]);
 }
 ```
 
