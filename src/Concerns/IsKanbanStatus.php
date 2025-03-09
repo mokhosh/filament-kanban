@@ -4,7 +4,7 @@ namespace Mokhosh\FilamentKanban\Concerns;
 
 use Illuminate\Support\Collection;
 
-trait KanbanStatusEnum
+trait IsKanbanStatus
 {
     public static function statuses(): Collection
     {

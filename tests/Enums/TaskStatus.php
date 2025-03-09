@@ -2,11 +2,11 @@
 
 namespace Mokhosh\FilamentKanban\Tests\Enums;
 
-use Mokhosh\FilamentKanban\Concerns\KanbanStatusEnum;
+use Mokhosh\FilamentKanban\Concerns\IsKanbanStatus;
 
 enum TaskStatus: string
 {
-    use KanbanStatusEnum;
+    use IsKanbanStatus;
 
     case Todo = 'Todo';
     case Doing = 'Doing';
