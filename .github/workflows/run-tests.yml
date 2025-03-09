@@ -20,9 +20,11 @@ jobs:
           - laravel: 10.*
             testbench: 8.*
             carbon: ^2.63
+            pest: ^2.0
           - laravel: 11.*
             testbench: 9.*
             carbon: ^3.0
+            pest: ^2.0
           - laravel: 12.*
             testbench: 10.*
             carbon: ^3.8.4
