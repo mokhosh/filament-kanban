@@ -35,17 +35,14 @@ php artisan filament-kanban:install
 
 I'm also assuming there's a `title` column on your model, but you can have `name` or any other column to represent a title.
 
-You can create a string backed `Enum` to define your statuses, or use separate classes for your statuses. This package works with Spatie Model States package as well.
+I recommend you create a string backed `Enum` to define your statuses.
 
-Your status class/enum should implement the `KanbanStatus` interface.
-
-You can use the `KanbanStatusEnum` trait on a status enum for sensible defaults, or implement `KanbanStatus` methods yourself.
+You can use our `KanbanStatusEnum` trait, so you can easily transform your enum cases for the Kanban board using the `statuses` method on your enum.
 
 ```php
 use Mokhosh\FilamentKanban\Concerns\KanbanStatusEnum;
-use Mokhosh\FilamentKanban\Contracts\KanbanStatus;
 
-enum UserStatus: string implements KanbanStatus
+enum UserStatus: string
 {
     use KanbanStatusEnum;
 
@@ -54,21 +51,10 @@ enum UserStatus: string implements KanbanStatus
 }
 ```
 
-You can use the `KanbanStatusClass` trait on Spatie abstract state classes for sensible defaults, or implement `KanbanStatus` methods yourself.
-
-If you're using an enum for your status, cast the `status` attribute on your `Model`.
-
-```php
-class User extends Model
-{
-    protected $casts = [
-        'status' => UserStatus::class,
-    ];
-}
-```
+I recommend you cast the `status` attribute on your `Model` to the enum that you have created.
 
 > [!TIP]
-> If you use the [Spatie Eloquent Sortable](https://github.com/spatie/eloquent-sortable) package on your `Model`, we will magically add sorting abilities to your Kanban boards.
+> I also recommend you use the [Spatie Eloquent Sortable](https://github.com/spatie/eloquent-sortable) package on your `Model`, and we will magically add sorting abilities to your Kanban boards.
 
 ## Usage
 
@@ -86,10 +72,10 @@ You should override the `model` property, so we can load your records.
 protected static string $model = User::class;
 ```
 
-You should also override the `status` property, which defines your statuses.
+You should also override the `statusEnum` property, which defines your statuses.
 
 ```php
-protected static string $status = UserStatus::class;
+protected static string $statusEnum = UserStatus::class;
 ```
 
 ## Upgrade Guide
