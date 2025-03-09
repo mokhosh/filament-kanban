@@ -27,6 +27,7 @@ jobs:
             testbench: 10.*
             carbon: ^3.8.4
             pest: ^3.0
+            pest-plugin-laravel: ^3.0
         exclude:
           - laravel: 11.*
             php: 8.1
