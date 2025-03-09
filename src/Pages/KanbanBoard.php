@@ -28,7 +28,7 @@ class KanbanBoard extends Page
 
     protected static string $model;
 
-    protected static string $status;
+    protected static string $statusEnum;
 
     protected static string $recordTitleAttribute = 'title';
 
@@ -36,7 +36,7 @@ class KanbanBoard extends Page
 
     protected function statuses(): Collection
     {
-        return static::$status::statuses();
+        return static::$statusEnum::statuses();
     }
 
     protected function records(): Collection
@@ -66,7 +66,7 @@ class KanbanBoard extends Page
         $statusIsCastToEnum = $records->first()?->getAttribute(static::$recordStatusAttribute) instanceof UnitEnum;
 
         $filter = $statusIsCastToEnum
-            ? static::$status::from($status['id'])
+            ? static::$statusEnum::from($status['id'])
             : $status['id'];
 
         return $records->where(static::$recordStatusAttribute, $filter)->all();
