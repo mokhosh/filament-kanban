@@ -2,6 +2,28 @@
 
 All notable changes to `filament-kanban` will be documented in this file.
 
+## v2.10.0 - 2025-03-09
+
+### What's Changed
+
+* Support Laravel v12
+* Make date diffing absolute
+* Bump dependabot/fetch-metadata from 1.6.0 to 2.0.0 by @dependabot in https://github.com/mokhosh/filament-kanban/pull/27
+* Merge 2.x changes by @mokhosh in https://github.com/mokhosh/filament-kanban/pull/32
+* Bump aglipanci/laravel-pint-action from 2.3.1 to 2.4 by @dependabot in https://github.com/mokhosh/filament-kanban/pull/34
+* Bump dependabot/fetch-metadata from 2.0.0 to 2.1.0 by @dependabot in https://github.com/mokhosh/filament-kanban/pull/37
+* Bump dependabot/fetch-metadata from 2.1.0 to 2.2.0 by @dependabot in https://github.com/mokhosh/filament-kanban/pull/48
+* docs: Update README.md by @Dipesh79 in https://github.com/mokhosh/filament-kanban/pull/67
+* Bump dependabot/fetch-metadata from 2.2.0 to 2.3.0 by @dependabot in https://github.com/mokhosh/filament-kanban/pull/68
+* Bump aglipanci/laravel-pint-action from 2.4 to 2.5 by @dependabot in https://github.com/mokhosh/filament-kanban/pull/69
+
+### New Contributors
+
+* @mokhosh made their first contribution in https://github.com/mokhosh/filament-kanban/pull/32
+* @Dipesh79 made their first contribution in https://github.com/mokhosh/filament-kanban/pull/67
+
+**Full Changelog**: https://github.com/mokhosh/filament-kanban/compare/v2.7.0...v2.10.0
+
 ## v2.9.0 - 2024-10-01
 
 ### What's Changed
@@ -180,6 +202,7 @@ class UserDashboard extends KanbanBoard
 
 
 
+
 ```
 Now you can have just this:
 
@@ -193,6 +216,7 @@ class UserDashboard extends KanbanBoard
     protected static ?string $model = User::class;
     protected static ?string $statusEnum = UserStatus::class;
 }
+
 
 
 
@@ -294,6 +318,7 @@ class UserDashboard extends KanbanBoard
 
 
 
+
 ```
 Now you can have just this:
 
@@ -307,6 +332,7 @@ class UserDashboard extends KanbanBoard
     protected static ?string $model = User::class;
     protected static ?string $statusEnum = UserStatus::class;
 }
+
 
 
 
