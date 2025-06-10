@@ -129,15 +129,30 @@
                                 document.body.classList.remove("grabbing")
                             },
                             onAdd(e) {
+                                const position = e.newIndex;
+                                const from = e.from;
+                                const to = e.to;
+
                                 const recordId = e.item.id
-                                const status = e.to.dataset.statusId
+                                const newStatusId = to.dataset.statusId
+                                const oldStatusId = from.dataset.statusId
+
                                 const fromOrderedIds = Array.from(e.from.children).map(c => c.id).filter(
                                     id =>
                                     id)
                                 const toOrderedIds = Array.from(e.to.children).map(c => c.id).filter(id =>
                                     id)
-                                self.$wire.statusChanged(recordId, status,
+                                self.$wire.statusChanged(recordId, newStatusId,
                                     fromOrderedIds, toOrderedIds)
+
+                                const oldStatus = self.statuses.find(status => status.id == oldStatusId)
+                                const record = oldStatus.records.find(r => r.id == recordId)
+                                const newStatus = self.statuses.find(status => status.id == newStatusId)
+
+                                oldStatus.records = oldStatus.records.filter(r => r.id !== recordId)
+                                newStatus.records.splice(position, 0, record);
+
+                                e.item.remove()
                             },
                             onUpdate(e) {
                                 const recordId = e.item.id

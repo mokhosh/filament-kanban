@@ -12,4 +12,18 @@
             @include(static::$recordView)
         </template>
     </div>
+
+    @if (self::$hasCreateAction ?? false)
+        <div x-data="{
+            createRecord() {
+                this.$wire.mountAction('create', {
+                    record: status.id
+                });
+            }
+        }">
+            <x-filament::button size="sm" x-on:click="createRecord" class="w-full">
+                {{ $this->createAction->getLabel() }}
+            </x-filament::button>
+        </div>
+    @endif
 </div>
