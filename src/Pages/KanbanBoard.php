@@ -46,21 +46,6 @@ class KanbanBoard extends Page
             ->get();
     }
 
-    protected function getViewData(): array
-    {
-        $records = $this->records();
-        $statuses = $this->statuses()
-            ->map(function ($status) use ($records) {
-                $status['records'] = $this->filterRecordsByStatus($records, $status);
-
-                return $status;
-            });
-
-        return [
-            'statuses' => $statuses,
-        ];
-    }
-
     protected function filterRecordsByStatus(Collection $records, array $status): array
     {
         $statusIsCastToEnum = $records->first()?->getAttribute(static::$recordStatusAttribute) instanceof UnitEnum;
