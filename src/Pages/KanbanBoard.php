@@ -34,6 +34,10 @@ class KanbanBoard extends Page
 
     protected static string $recordStatusAttribute = 'status';
 
+    public bool $enableSearch = false;
+
+    public ?string $kanbanSearchValue = null;
+
     protected function statuses(): Collection
     {
         return static::$statusEnum::statuses();
@@ -60,5 +64,12 @@ class KanbanBoard extends Page
     protected function getEloquentQuery(): Builder
     {
         return static::$model::query();
+    }
+
+    public function search(string $value): array
+    {
+        $this->kanbanSearchValue = $value;
+
+        return $this->statuses()->toArray();
     }
 }

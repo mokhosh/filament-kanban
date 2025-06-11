@@ -68,10 +68,6 @@
                 init() {
                     document.addEventListener('statusesUpdated', (e) => {
                         this.statuses = e.detail[0].statuses
-
-                        this.$nextTick(() => {
-                            this.initSortable()
-                        })
                     })
 
                     document.addEventListener('updateStatusFromTo', (e) => {
@@ -82,6 +78,34 @@
                         } = e.detail[0]
 
                         this.handleStatusChange(recordId, fromStatus, toStatus)
+                    })
+
+                    document.addEventListener('updateRecordAttributes', (e) => {
+                        const {
+                            recordId,
+                            statusId,
+                            attributes
+                        } = e.detail[0]
+
+                        this.updateRecordAttributes(statusId, recordId, attributes)
+                    })
+
+                    document.addEventListener('deleteRecord', (e) => {
+                        const {
+                            statusId,
+                            recordId
+                        } = e.detail[0]
+
+                        this.deleteRecord(statusId, recordId)
+                    })
+
+                    document.addEventListener('addRecord', (e) => {
+                        const {
+                            statusId,
+                            record
+                        } = e.detail[0]
+
+                        this.addRecord(statusId, record)
                     })
 
                     this.loading = true
@@ -104,13 +128,36 @@
                         fromContainer.records = fromContainer.records.filter(r => r.id !== recordId)
                     }
 
-                    console.log(this.statuses)
                     const toContainer = this.statuses.find(status => status.id == toStatus)
-                    console.log(toContainer, toStatus)
                     if (toContainer) {
-                        console.log(toContainer, record)
                         toContainer.records.push(record)
                     }
+                },
+                addRecord(statusId, record) {
+                    const status = this.statuses.find(status => status.id == statusId)
+                    if (!status) return
+
+                    status.records.push(record)
+                },
+                deleteRecord(statusId, recordId) {
+                    const record = this.statuses.find(status => status.id == statusId).records.find(record =>
+                        record.id == recordId)
+                    if (!record) return
+
+                    this.statuses.find(status => status.id == statusId).records = this.statuses.find(status => status.id ==
+                        statusId).records.filter(r => r.id !== recordId)
+                },
+                updateRecordAttributes(statusId, recordId, attributes) {
+                    let record = this.statuses.find(status => status.id == statusId).records.find(record =>
+                        record.id == recordId)
+                    if (!record) return
+
+                    const newRecord = {
+                        ...record,
+                        ...attributes
+                    }
+
+                    Object.assign(record, newRecord)
                 },
                 initSortable() {
                     const self = this
@@ -149,7 +196,7 @@
                                 const record = oldStatus.records.find(r => r.id == recordId)
                                 const newStatus = self.statuses.find(status => status.id == newStatusId)
 
-                                oldStatus.records = oldStatus.records.filter(r => r.id !== recordId)
+                                oldStatus.records = oldStatus.records.filter(r => r.id != recordId)
                                 newStatus.records.splice(position, 0, record);
 
                                 e.item.remove()
