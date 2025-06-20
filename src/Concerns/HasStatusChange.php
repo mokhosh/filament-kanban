@@ -14,9 +14,14 @@ trait HasStatusChange
 
     public function onStatusChanged(int|string $recordId, string $status, array $fromOrderedIds, array $toOrderedIds): void
     {
-        $this->getEloquentQuery()->find($recordId)->update([
-            static::$recordStatusAttribute => $status,
-        ]);
+        $record = match (true) {
+            method_exists(static::$model, 'withTrashed') && method_exists(static::$model, 'withArchived') => static::$model::withTrashed()->withArchived()->find($recordId),
+            method_exists(static::$model, 'withArchived') => static::$model::withArchived()->find($recordId),
+            method_exists(static::$model, 'withTrashed') => static::$model::withTrashed()->find($recordId),
+            default => static::$model::find($recordId),
+        };
+
+       $record?->update([static::$recordStatusAttribute => $status]);
 
         if (method_exists(static::$model, 'setNewOrder')) {
             static::$model::setNewOrder($toOrderedIds);
