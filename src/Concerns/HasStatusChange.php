@@ -2,6 +2,8 @@
 
 namespace Mokhosh\FilamentKanban\Concerns;
 
+use Exception;
+use Illuminate\Support\Facades\Log;
 use Livewire\Attributes\On;
 
 trait HasStatusChange
@@ -21,7 +23,11 @@ trait HasStatusChange
             default => static::$model::find($recordId),
         };
 
-       $record?->update([static::$recordStatusAttribute => $status]);
+        try {
+            $record?->update([static::$recordStatusAttribute => $status]);
+        } catch (Exception $e) {
+            Log::critical($e->getMessage());
+        }
 
         if (method_exists(static::$model, 'setNewOrder')) {
             static::$model::setNewOrder($toOrderedIds);

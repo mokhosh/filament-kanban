@@ -63,12 +63,16 @@ trait HasEditRecordModal
 
     protected function getEditModalRecordData(int | string $recordId, array $data): array
     {
-        return $this->getEloquentQuery()->find($recordId)->toArray();
+        return static::$model
+            ? static::$model::find($recordId)?->toArray() ?? []
+            : $this->getEloquentQuery()->find($recordId)?->toArray() ?? [];
     }
 
     protected function editRecord(int | string $recordId, array $data, array $state): void
     {
-        $this->getEloquentQuery()->find($recordId)->update($data);
+        static::$model
+            ? static::$model::find($recordId)->update($data)
+            : $this->getEloquentQuery()->find($recordId)->update($data);
     }
 
     protected function getEditModalFormSchema(null | int | string $recordId): array
