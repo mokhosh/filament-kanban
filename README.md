@@ -114,13 +114,13 @@ You can also override these methods to change your board's behavior when records
 - `onSortChanged` which defines what happens when a record is moved inside the same status.
 
 ```php
-public function onStatusChanged(int $recordId, string $status, array $fromOrderedIds, array $toOrderedIds): void
+public function onStatusChanged(int|string $recordId, string $status, array $fromOrderedIds, array $toOrderedIds): void
 {
     User::find($recordId)->update(['status' => $status]);
     User::setNewOrder($toOrderedIds);
 }
 
-public function onSortChanged(int $recordId, string $status, array $orderedIds): void
+public function onSortChanged(int|string $recordId, string $status, array $orderedIds): void
 {
     User::setNewOrder($orderedIds);
 }
@@ -168,7 +168,7 @@ public bool $disableEditModal = false;
 You can define the edit modal form schema by overriding this method:
 
 ```php
-protected function getEditModalFormSchema(null|int $recordId): array
+protected function getEditModalFormSchema(int|string|null $recordId): array
 {
     return [
         TextInput::make('title'),
@@ -183,7 +183,7 @@ As you can see you have access to the `id` of the record being edited, if that's
 You can define what happens when the edit form is submitted by overriding this method:
 
 ```php
-protected function editRecord($recordId, array $data, array $state): void
+protected function editRecord(int|string $recordId, array $data, array $state): void
 {
     Model::find($recordId)->update([
         'phone' => $data['phone']
