@@ -29,7 +29,7 @@
     }
 
     document.addEventListener('livewire:navigated', () => {
-        const statuses = @js($statuses->map(fn ($status) => $status['id']))
+        const statuses = @js($statuses->pluck('id')->values()->toArray());
 
         statuses.forEach(status => Sortable.create(document.querySelector(`[data-status-id='${status}']`), {
             group: 'filament-kanban',
