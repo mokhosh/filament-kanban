@@ -2,6 +2,22 @@
 
 All notable changes to `filament-kanban` will be documented in this file.
 
+## v2.11.0 - 2025-07-19
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 2.3.0 to 2.4.0 by @dependabot[bot] in https://github.com/mokhosh/filament-kanban/pull/77
+* fix: fixed method signatures by @chinmaypurav in https://github.com/mokhosh/filament-kanban/pull/80
+* Bump stefanzweifel/git-auto-commit-action from 5 to 6 by @dependabot[bot] in https://github.com/mokhosh/filament-kanban/pull/78
+* Fix issue #81 by @bencarlson in https://github.com/mokhosh/filament-kanban/pull/82
+
+### New Contributors
+
+* @chinmaypurav made their first contribution in https://github.com/mokhosh/filament-kanban/pull/80
+* @bencarlson made their first contribution in https://github.com/mokhosh/filament-kanban/pull/82
+
+**Full Changelog**: https://github.com/mokhosh/filament-kanban/compare/v2.10.0...v2.11.0
+
 ## v2.10.0 - 2025-03-09
 
 ### What's Changed
@@ -203,6 +219,7 @@ class UserDashboard extends KanbanBoard
 
 
 
+
 ```
 Now you can have just this:
 
@@ -216,6 +233,7 @@ class UserDashboard extends KanbanBoard
     protected static ?string $model = User::class;
     protected static ?string $statusEnum = UserStatus::class;
 }
+
 
 
 
@@ -319,6 +337,7 @@ class UserDashboard extends KanbanBoard
 
 
 
+
 ```
 Now you can have just this:
 
@@ -332,6 +351,7 @@ class UserDashboard extends KanbanBoard
     protected static ?string $model = User::class;
     protected static ?string $statusEnum = UserStatus::class;
 }
+
 
 
 
