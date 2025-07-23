@@ -9,11 +9,15 @@
                     'bg-gray-50 text-gray-600 ring-gray-600/10 dark:bg-gray-400/10 dark:text-gray-400 dark:ring-gray-400/20': status.badgeColor === 'gray',
                     'fi-color-custom bg-custom-50 text-custom-600 ring-custom-600/10 dark:bg-custom-400/10 dark:text-custom-400 dark:ring-custom-400/30': status.badgeColor !== 'gray'
                 }"
-                x-bind:style="status.badgeColor !== 'gray' ? {
+                x-bind:style="status.badgeColor ? {
                     '--c-50': 'var(--' + status.badgeColor + '-50)',
                     '--c-400': 'var(--' + status.badgeColor + '-400)', 
                     '--c-600': 'var(--' + status.badgeColor + '-600)'
-                } : {}">
+                } : {
+                    '--c-50': 'var(--success-50)',
+                    '--c-400': 'var(--success-400)', 
+                    '--c-600': 'var(--success-600)'
+                }">
                 <span x-text="status.records.length"></span>
             </span>
         </div>
