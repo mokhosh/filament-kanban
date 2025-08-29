@@ -1,3 +1,7 @@
 @import '../../vendor/filament/filament/resources/css/theme.css';
 
+@source '../../src/**/*';
+@source '../../resources/views/**/*';
+@source '../../vendor/filament/**/*';
+
 .grabbing * { @apply !cursor-grabbing }
