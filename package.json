@@ -2,8 +2,8 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "dev:styles": "npx tailwindcss -i resources/css/index.css -o resources/dist/filament-kanban.css --postcss --watch",
-        "build:styles": "npx tailwindcss -i resources/css/index.css -o resources/dist/filament-kanban.css --postcss --minify && npm run purge",
+        "dev:styles": "npx @tailwindcss/cli -i resources/css/index.css -o resources/dist/filament-kanban.css --postcss --watch",
+        "build:styles": "npx @tailwindcss/cli -i resources/css/index.css -o resources/dist/filament-kanban.css --postcss --minify && npm run purge",
         "purge": "filament-purge -i resources/dist/filament-kanban.css -o resources/dist/filament-kanban.css -v 3.x",
         "dev": "npm-run-all --parallel dev:*",
         "build": "npm-run-all build:*"
@@ -13,12 +13,12 @@
         "@tailwindcss/forms": "^0.5.4",
         "@tailwindcss/typography": "^0.5.9",
         "autoprefixer": "^10.4.14",
-        "esbuild": "^0.19.2",
+        "esbuild": "^0.25.0",
         "npm-run-all": "^4.1.5",
         "postcss": "^8.4.26",
         "postcss-import": "^15.1.0",
         "prettier": "^2.7.1",
         "prettier-plugin-tailwindcss": "^0.1.13",
-        "tailwindcss": "^3.3.3"
+        "tailwindcss": "^4.0"
     }
 }
