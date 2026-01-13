@@ -2,21 +2,26 @@
 
 namespace Mokhosh\FilamentKanban\Pages;
 
+use BackedEnum;
 use Filament\Pages\Page;
+use Filament\Schemas\Concerns\InteractsWithSchemas;
+use Filament\Schemas\Contracts\HasSchemas;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 use Mokhosh\FilamentKanban\Concerns\HasEditRecordModal;
 use Mokhosh\FilamentKanban\Concerns\HasStatusChange;
+use phpDocumentor\Reflection\Types\ClassString;
 use UnitEnum;
 
-class KanbanBoard extends Page
+class KanbanBoard extends Page implements HasSchemas
 {
     use HasEditRecordModal;
     use HasStatusChange;
+    use InteractsWithSchemas;
 
-    protected static ?string $navigationIcon = 'heroicon-o-document-text';
+    protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-document-text';
 
-    protected static string $view = 'filament-kanban::kanban-board';
+    protected string $view = 'filament-kanban::kanban-board';
 
     protected static string $headerView = 'filament-kanban::kanban-header';
 
